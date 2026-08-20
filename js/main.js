@@ -168,8 +168,15 @@ const viewHouse = document.getElementById('view-house');
 const navToggle = document.getElementById('nav-toggle');
 const navMobile = document.getElementById('nav-mobile');
 
+function positionMobileNav() {
+  navMobile.style.top = (document.querySelector('header').offsetHeight + 4) + 'px';
+}
+positionMobileNav();
+window.addEventListener('resize', positionMobileNav);
+
 navToggle.addEventListener('click', (e) => {
   e.stopPropagation();
+  positionMobileNav();
   const open = navMobile.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', open);
 });
