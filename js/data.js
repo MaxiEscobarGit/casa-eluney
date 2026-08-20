@@ -1,6 +1,6 @@
 // Casa Eluney — datos y contenido (separado de la lógica de render)
 
-const WHATSAPP_NUMBER = '54154581980';
+const WHATSAPP_NUMBER = '5492944581980';
 const PET_FRIENDLY = false;
 
 const IG_URL = 'https://www.instagram.com/alquiler.bariloche.eluney?igsh=MTYwdDgweTUzbW9sdg==';
@@ -19,7 +19,7 @@ const ICONS = {
   check: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>',
 };
 
-const SHARED = ['images/shared-01.png', 'images/shared-07.png', 'images/shared-02.png', 'images/shared-08.png', 'images/shared-03.png'];
+const SHARED = ['images/shared-01.webp', 'images/shared-07.webp', 'images/shared-02.webp', 'images/shared-08.webp', 'images/shared-03.webp'];
 
 const HOUSES = {
   pequena: {
@@ -32,10 +32,10 @@ const HOUSES = {
     description: 'La casa principal del complejo Eluney, pensada para dos o tres personas. Tiene un dormitorio con cama matrimonial y cama de una plaza (ambas con sommier y sábanas incluidas), un baño completo y una cocina-comedor totalmente equipada con microondas. Wifi y TV en un barrio tranquilo y familiar, a menos de 5 minutos del Centro Cívico y muy cerca de los accesos a las principales rutas de excursión.',
     stats: [{ value: '1', label: 'Dormitorio' }, { value: '1', label: 'Baño' }, { value: '2-3', label: 'Huéspedes' }],
     baseAmenities: ['WiFi', 'TV', 'Cocina equipada', 'Microondas', 'Sábanas incluidas', 'Baño privado'],
-    heroImage: 'images/pequena-cover.png',
+    heroImage: 'images/pequena-cover.webp',
     photos: [
-      'images/pequena-01.png', 'images/pequena-02.png', 'images/pequena-03.png', 'images/pequena-04.png', 'images/pequena-05.png',
-      'images/pequena-06.png', 'images/pequena-07.png', 'images/pequena-08.png', 'images/pequena-09.png', 'images/pequena-10.png',
+      'images/pequena-01.webp', 'images/pequena-02.webp', 'images/pequena-03.webp', 'images/pequena-04.webp', 'images/pequena-05.webp',
+      'images/pequena-06.webp', 'images/pequena-07.webp', 'images/pequena-08.webp', 'images/pequena-09.webp', 'images/pequena-10.webp',
       ...SHARED,
     ],
   },
@@ -49,10 +49,10 @@ const HOUSES = {
     description: 'Gran Eluney ocupa la planta baja de la casa y tiene ambientes amplios: dos dormitorios y un baño. La cocina, el comedor y el living están conectados, muy cómodos por el tamaño, y la casa está totalmente equipada con todo lo necesario para la estadía. También se puede solicitar el uso del quincho con parrilla. Cuenta con un patio amplio y un sector techado para estacionar, compartido con otro alojamiento.',
     stats: [{ value: '2', label: 'Dormitorios' }, { value: '1', label: 'Baño' }, { value: '5', label: 'Huéspedes' }],
     baseAmenities: ['WiFi', 'Calefacción central', 'Cocina, comedor y living integrados', 'Cocina totalmente equipada', 'Sábanas incluidas', 'Quincho con parrilla (a solicitar)', 'Patio amplio', 'Estacionamiento techado (compartido)'],
-    heroImage: 'images/gran-hero.png',
+    heroImage: 'images/gran-hero.webp',
     photos: [
-      'images/gran-cover.png', 'images/gran-hero.png', 'images/gran-01.png', 'images/gran-02.png', 'images/gran-03.png',
-      'images/gran-04.png', 'images/gran-05.png', 'images/gran-06.png', 'images/gran-07.png', 'images/gran-08.png',
+      'images/gran-cover.webp', 'images/gran-hero.webp', 'images/gran-01.webp', 'images/gran-02.webp', 'images/gran-03.webp',
+      'images/gran-04.webp', 'images/gran-05.webp', 'images/gran-06.webp', 'images/gran-07.webp', 'images/gran-08.webp',
       ...SHARED,
     ],
   },
@@ -69,8 +69,8 @@ const HOUSE_RULES = [
 const RATIOS = ['3/4', '1/1', '4/5', '2/3', '1/1', '5/6', '3/4', '1/1', '4/5', '1/1', '2/3', '5/6'];
 const TILTS = [-2, 1.5, -1, 2, -1.5, 1];
 
-const MARQUEE_A = ['images/shared-01.png', 'images/shared-02.png', 'images/shared-03.png', 'images/shared-04.png', 'images/shared-05.png', 'images/shared-06.png'];
-const MARQUEE_B = ['images/shared-07.png', 'images/shared-08.png', 'images/shared-09.png', 'images/shared-10.png', 'images/shared-11.png', 'images/snow.jpeg'];
+const MARQUEE_A = ['images/shared-01.webp', 'images/shared-02.webp', 'images/shared-03.webp', 'images/shared-04.webp', 'images/shared-05.webp', 'images/shared-06.webp'];
+const MARQUEE_B = ['images/shared-07.webp', 'images/shared-08.webp', 'images/shared-09.webp', 'images/shared-10.webp', 'images/shared-11.webp', 'images/snow.jpeg'];
 
 const waHref = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 const HOME_WA = waHref('Hola! Quiero consultar por las casas en Bariloche.');

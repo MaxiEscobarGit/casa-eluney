@@ -57,7 +57,7 @@ function houseHTML(house) {
       <a href="#" data-nav="home" style="font-size:13.5px;font-weight:500;color:oklch(48% 0.01 75)">← Volver al inicio</a>
     </div>
 
-    <section style="max-width:1120px;margin:0 auto;padding:28px 24px clamp(56px,8vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:52px;align-items:center">
+    <section class="grid-split" style="max-width:1120px;margin:0 auto;padding:28px 24px clamp(56px,8vw,88px)">
       <div style="animation:fadeUp .6s ease both">
         <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${house.accent}">${house.eyebrow}</div>
         <h1 style="font-family:'Sora',sans-serif;font-size:clamp(34px,5.2vw,54px);line-height:1.05;font-weight:700;letter-spacing:-0.035em;margin:16px 0 18px">${house.name}</h1>
@@ -79,7 +79,7 @@ function houseHTML(house) {
       <div style="max-width:1000px;margin:0 auto">
         <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 10px">Comodidades</h2>
         <p style="font-size:16px;color:oklch(48% 0.01 75);margin:0 0 34px">Todo lo que necesitás para sentirte como en casa.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">${amenities}</div>
+        <div class="grid-tiles">${amenities}</div>
       </div>
     </section>
 
@@ -89,7 +89,7 @@ function houseHTML(house) {
     </section>
 
     <section style="padding:clamp(56px,8vw,88px) 24px;margin-top:clamp(56px,8vw,88px);background:oklch(95% 0.014 70 / 0.7)">
-      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px;align-items:center">
+      <div class="grid-split" style="max-width:1120px;margin:0 auto">
         <div>
           <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 16px">Cómo llegar</h2>
           <p style="font-size:16.5px;line-height:1.7;color:oklch(45% 0.01 75);margin:0">${house.name} está en Tronador 2084, Barrio La Cumbre — a menos de 5 minutos del Centro Cívico de Bariloche y con salida directa hacia los accesos de ruta que llevan a las excursiones.</p>
@@ -104,7 +104,7 @@ function houseHTML(house) {
 
     <section style="max-width:1000px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px 0">
       <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 24px">Reseñas de huéspedes</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <div class="grid-cards">
         ${review(`Espacio para el comentario de un huésped real de ${house.name}.`)}
         ${review('Espacio para otro comentario de huésped.')}
       </div>
@@ -130,6 +130,7 @@ function currentHouseId() {
 }
 
 function render() {
+  if (typeof navMobile !== 'undefined') navMobile.classList.remove('open');
   const houseId = currentHouseId();
   const house = houseId ? HOUSES[houseId] : null;
 
@@ -164,6 +165,18 @@ window.addEventListener('hashchange', render);
 
 const viewHome = document.getElementById('view-home');
 const viewHouse = document.getElementById('view-house');
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+
+navToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const open = navMobile.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+
+document.addEventListener('click', (e) => {
+  if (!navMobile.contains(e.target)) navMobile.classList.remove('open');
+});
 
 renderMarquee(document.getElementById('marquee-a'), MARQUEE_A);
 renderMarquee(document.getElementById('marquee-b'), MARQUEE_B);

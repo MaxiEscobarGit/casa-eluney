@@ -65,6 +65,50 @@ a:hover{color:oklch(40% 0.10 210)}
 .h-lift3:hover{transform:translateY(-3px)}
 .h-photo:hover{transform:scale(1.03) rotate(var(--tilt,0deg))}
 
+/* mobile-first layout classes */
+.hero-inner{padding:24px 20px}
+.hero-cta{display:flex;gap:10px;flex-direction:column;align-items:stretch}
+.hero-cta a{text-align:center}
+.grid-cards{display:grid;grid-template-columns:1fr;gap:20px}
+.grid-tiles{display:grid;grid-template-columns:1fr;gap:12px}
+.grid-split{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+.grid-activities{display:grid;grid-template-columns:1fr;gap:18px}
+
+@media (min-width:480px){
+  .hero-cta{flex-direction:row;align-items:center;gap:12px}
+  .hero-cta a{text-align:left}
+  .grid-activities{grid-template-columns:1fr 1fr}
+}
+@media (min-width:640px){
+  .hero-inner{padding:44px 34px}
+  .grid-tiles{grid-template-columns:1fr 1fr;gap:16px}
+  .grid-cards{gap:24px}
+}
+@media (min-width:769px){
+  .grid-cards{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .grid-tiles{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .grid-split{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px}
+}
+@media (min-width:900px){
+  .grid-activities{grid-template-columns:repeat(4,1fr)}
+}
+
+/* hamburger mobile */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:100px;color:oklch(45% 0.01 75);transition:background .2s ease;align-items:center;justify-content:center}
+.nav-toggle:hover{background:oklch(92% 0.01 75 / 0.7)}
+
+.nav-mobile{display:none;position:fixed;top:76px;left:16px;right:16px;z-index:49;background:oklch(99% 0.006 75 / 0.96);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid oklch(100% 0 0 / 0.55);border-radius:24px;box-shadow:0 10px 34px oklch(30% 0.02 75 / 0.14);padding:10px;flex-direction:column;gap:4px}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-size:15px;font-weight:500;color:oklch(40% 0.01 75);padding:13px 16px;border-radius:14px;transition:background .2s ease;display:block}
+.nav-mobile a:hover{background:oklch(92% 0.01 75 / 0.7);color:oklch(32% 0.01 75)}
+.nav-mobile .wa-link{background:#47DD42;color:white !important;font-weight:600;text-align:center;margin-top:4px;border-radius:14px}
+.nav-mobile .wa-link:hover{background:oklch(18% 0.01 75) !important;transform:none}
+
+@media (max-width:768px){
+  #main-nav{display:none}
+  .nav-toggle{display:flex}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
