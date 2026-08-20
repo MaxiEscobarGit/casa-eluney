@@ -1,293 +1,307 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Eluney — Alquiler de casas en Bariloche</title>
-<meta name="description" content="Pequeña Eluney y Gran Eluney: dos casas en un mismo terreno en Barrio La Cumbre, Bariloche, a minutos del Centro Cívico.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Eluney — Alquiler temporario en Bariloche</title>
+<meta name="description" content="Pequeña Eluney y Gran Eluney: dos casas totalmente equipadas para 3 y hasta 5 personas en Barrio La Cumbre, a menos de 5 minutos del Centro Cívico de Bariloche.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="page">
 
-<header>
-  <div class="header-inner">
-    <a href="#" class="logo" data-nav="home">Casa Eluney</a>
-    <nav>
-      <a href="#" class="nav-link" data-nav="home">Inicio</a>
-      <a href="#pequena" class="nav-house" data-house="pequena">Pequeña Eluney</a>
-      <a href="#gran" class="nav-house" data-house="gran">Gran Eluney</a>
-      <a href="#" class="btn-dark wa-link" target="_blank" rel="noopener">Reservar por WhatsApp</a>
-    </nav>
-  </div>
-</header>
+  <header style="position:fixed;top:0;left:0;right:0;z-index:50;padding:12px 16px">
+    <div style="max-width:1120px;margin:0 auto;padding:10px 14px 10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;background:oklch(99% 0.006 75 / 0.62);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid oklch(100% 0 0 / 0.55);border-radius:100px;box-shadow:0 1px 0 oklch(100% 0 0 / 0.6) inset,0 10px 34px oklch(30% 0.02 75 / 0.12)">
+      <a href="#" data-nav="home" style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px;letter-spacing:-0.02em;color:oklch(24% 0.01 75)">Casa Eluney</a>
+      <nav style="display:flex;align-items:center;gap:6px;flex-wrap:nowrap">
+        <a href="#" data-nav="home" class="h-nav" style="font-size:13.5px;font-weight:500;color:oklch(45% 0.01 75);padding:8px 12px;border-radius:100px;transition:background .2s ease;white-space:nowrap">Inicio</a>
+        <a href="#pequena" class="nav-house-link nav-house h-nav" data-house="pequena" style="font-size:13.5px;font-weight:500;color:oklch(45% 0.01 75);background:transparent;padding:8px 12px;border-radius:100px;transition:background .2s ease;white-space:nowrap">Pequeña Eluney</a>
+        <a href="#gran" class="nav-house-link nav-house h-nav" data-house="gran" style="font-size:13.5px;font-weight:500;color:oklch(45% 0.01 75);background:transparent;padding:8px 12px;border-radius:100px;transition:background .2s ease;white-space:nowrap">Gran Eluney</a>
+        <a href="#" class="wa-link h-wa" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:oklch(98% 0.01 75);padding:10px 16px;border-radius:100px;margin-left:4px;transition:transform .2s ease,background .2s ease;white-space:nowrap;background-color:#47DD42">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ===================== HOME ===================== -->
-<main id="view-home">
-  <section class="hero">
-    <div class="hero-photo hero-photo-desktop"><img src="images/hero-desktop.jpeg" alt="Las casas Eluney en invierno, con nieve"></div>
-    <div class="hero-photo hero-photo-mobile"><img src="images/hero-mobile.jpeg" alt="Las casas Eluney en invierno, con nieve"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-inner">
-        <div class="eyebrow">BARILOCHE</div>
-        <h1>Casa Eluney: dos casas, un mismo terreno</h1>
-        <p>En el corazón de Bariloche, a minutos del Centro Cívico. Elegí Pequeña Eluney para una escapada íntima o Gran Eluney para una estadía en grupo.</p>
-        <div class="hero-ctas">
-          <a href="#pequena" class="hero-cta" data-house="pequena">Ver Pequeña Eluney</a>
-          <a href="#gran" class="hero-cta" data-house="gran">Ver Gran Eluney</a>
+  <main id="view-home">
+
+    <section class="nav-below-header" style="position:relative;padding:16px">
+      <div style="position:relative;max-width:1240px;margin:0 auto;border-radius:34px;overflow:hidden;min-height:78vh;display:flex;align-items:flex-end;box-shadow:0 30px 80px oklch(30% 0.02 75 / 0.22)">
+        <div class="hero-photo-desktop" style="position:absolute;inset:0;z-index:0">
+          <img class="fill" src="images/hero-desktop.jpeg" alt="Las casas en invierno, con nieve">
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="intro section-soft">
-    <div class="intro-inner">
-      <h2>Un terreno, dos refugios</h2>
-      <p>Pequeña Eluney y Gran Eluney comparten el mismo terreno en Barrio La Cumbre, a menos de 5 minutos del Centro Cívico de Bariloche. Podés alquilar una sola casa o las dos juntas para reunir a todo el grupo.</p>
-    </div>
-  </section>
-
-  <section class="houses-section wrap">
-    <h2>Elegí tu casa</h2>
-    <div class="house-grid">
-      <div class="house-card">
-        <div class="house-card-photo"><img src="images/pequena-cover.png" alt="Foto de Pequeña Eluney"></div>
-        <div class="house-card-body">
-          <h3>Pequeña Eluney</h3>
-          <p>La casa principal del complejo, ideal para una estadía íntima</p>
-          <div class="house-stats">
-            <span><strong>1</strong> Dormitorio</span>
-            <span><strong>1</strong> Baño</span>
-            <span><strong>2-3</strong> Huéspedes</span>
+        <div class="hero-photo-mobile" style="position:absolute;inset:0;z-index:0">
+          <img class="fill" src="images/hero-mobile.jpeg" alt="Las casas en invierno, con nieve">
+        </div>
+        <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.62),oklch(18% 0.02 250 / 0.18) 45%,transparent 72%)"></div>
+        <div style="position:relative;z-index:2;width:100%;padding:44px 34px">
+          <div style="max-width:680px;animation:fadeUp .7s ease both">
+            <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(94% 0.03 210);text-shadow:0 1px 12px oklch(18% 0.02 250 / 0.5)">BARILOCHE</div>
+            <h1 style="font-family:'Sora',sans-serif;font-size:clamp(38px,7vw,68px);line-height:1.02;font-weight:700;margin:14px 0 16px;letter-spacing:-0.035em;color:white;text-shadow:0 2px 24px oklch(18% 0.02 250 / 0.45)">Casa Eluney</h1>
+            <p style="font-size:clamp(15px,2.2vw,18px);line-height:1.55;color:oklch(98% 0.005 75 / 0.95);max-width:520px;margin:0 0 26px;text-shadow:0 1px 16px oklch(18% 0.02 250 / 0.5)">Dos casas totalmente equipadas para 3 y hasta 6 personas, listas para que disfrutes tu próxima escapada.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a href="#pequena" class="h-glass" style="font-size:14.5px;font-weight:600;color:white;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid oklch(100% 0 0 / 0.35);padding:14px 26px;border-radius:100px;transition:transform .2s ease,background .2s ease;background-color:#0000003B">Ver Pequeña Eluney</a>
+              <a href="#gran" class="h-glass" style="font-size:14.5px;font-weight:600;color:white;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid oklch(100% 0 0 / 0.35);padding:14px 26px;border-radius:100px;transition:transform .2s ease,background .2s ease;background-color:#0000003B">Ver Gran Eluney</a>
+            </div>
           </div>
-          <a href="#pequena" class="house-card-link" data-house="pequena">Ver Pequeña Eluney →</a>
         </div>
       </div>
-      <div class="house-card">
-        <div class="house-card-photo"><img src="images/gran-cover.png" alt="Foto de Gran Eluney"></div>
-        <div class="house-card-body">
-          <h3>Gran Eluney</h3>
-          <p>Ambientes amplios, con living, comedor y cocina integrados</p>
-          <div class="house-stats">
-            <span><strong>2</strong> Dormitorios</span>
-            <span><strong>1</strong> Baño</span>
-            <span><strong>5</strong> Huéspedes</span>
+    </section>
+
+    <section style="max-width:1120px;margin:0 auto;padding:clamp(64px,10vw,120px) 24px">
+      <div style="max-width:760px">
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(52% 0.07 145)">Alquiler temporario en Bariloche</div>
+        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(30px,4.6vw,46px);font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin:16px 0 20px">Dos casas en un mismo lugar,<br>para disfrutar Bariloche.</h2>
+        <p style="font-size:clamp(16px,2.2vw,19px);line-height:1.65;color:oklch(45% 0.01 75);margin:0">Pequeña Eluney y Gran Eluney en Barrio La Cumbre, a menos de 5 minutos del Centro Cívico de Bariloche. Podés alquilar una sola casa o las dos juntas para reunir a todo el grupo.</p>
+      </div>
+    </section>
+
+    <section style="max-width:1120px;margin:0 auto;padding:0 24px clamp(64px,10vw,110px)">
+      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 32px;text-align:center">Elegí tu casa</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+
+        <div class="h-card" style="background:oklch(100% 0 0 / 0.6);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:28px;overflow:hidden;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12);transition:transform .3s ease,box-shadow .3s ease">
+          <div style="position:relative;aspect-ratio:4/3;margin:10px;border-radius:20px;overflow:hidden">
+            <img class="fill" loading="lazy" src="images/pequena-cover.png" alt="Foto de Pequeña Eluney">
+            <div style="position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:oklch(28% 0.01 75);background:oklch(100% 0 0 / 0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 13px;border-radius:100px">📍 Barrio La Cumbre</span>
+              <span style="font-size:12.5px;font-weight:600;color:white;background:oklch(48% 0.10 210);padding:7px 13px;border-radius:100px">Hasta 3</span>
+            </div>
           </div>
-          <a href="#gran" class="house-card-link" data-house="gran">Ver Gran Eluney →</a>
+          <div style="padding:20px 26px 28px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.1em;color:oklch(48% 0.10 210);margin-bottom:6px">CASA PRINCIPAL</div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:23px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px">Pequeña Eluney</h3>
+            <p style="font-size:15px;line-height:1.55;color:oklch(47% 0.01 75);margin:0 0 18px">La casa principal del complejo, ideal para una estadía íntima</p>
+            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">1</strong> Dormitorio</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">1</strong> Baño</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">2-3</strong> Huéspedes</span>
+            </div>
+            <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">WiFi</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">Cocina equipada</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">TV</span>
+            </div>
+            <a href="#pequena" class="h-lift" style="display:block;text-align:center;font-size:14.5px;font-weight:600;color:white;background:oklch(48% 0.10 210);padding:13px 20px;border-radius:100px;transition:transform .2s ease">Ver Pequeña Eluney</a>
+          </div>
+        </div>
+
+        <div class="h-card" style="background:oklch(100% 0 0 / 0.6);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:28px;overflow:hidden;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12);transition:transform .3s ease,box-shadow .3s ease">
+          <div style="position:relative;aspect-ratio:4/3;margin:10px;border-radius:20px;overflow:hidden">
+            <img class="fill" loading="lazy" src="images/gran-cover.png" alt="Foto de Gran Eluney">
+            <div style="position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:oklch(28% 0.01 75);background:oklch(100% 0 0 / 0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 13px;border-radius:100px">📍 Barrio La Cumbre</span>
+              <span style="font-size:12.5px;font-weight:600;color:white;background:oklch(55% 0.13 45);padding:7px 13px;border-radius:100px">Hasta 5</span>
+            </div>
+          </div>
+          <div style="padding:20px 26px 28px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.1em;color:oklch(55% 0.13 45);margin-bottom:6px">PLANTA BAJA</div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:23px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px">Gran Eluney</h3>
+            <p style="font-size:15px;line-height:1.55;color:oklch(47% 0.01 75);margin:0 0 18px">Ambientes amplios, con living, comedor y cocina integrados</p>
+            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">2</strong> Dormitorios</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">1</strong> Baño</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">5</strong> Huéspedes</span>
+            </div>
+            <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">WiFi</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">Quincho con parrilla</span>
+              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">Patio amplio</span>
+            </div>
+            <a href="#gran" class="h-lift" style="display:block;text-align:center;font-size:14.5px;font-weight:600;color:white;background:oklch(55% 0.13 45);padding:13px 20px;border-radius:100px;transition:transform .2s ease">Ver Gran Eluney</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section style="padding:clamp(56px,8vw,96px) 24px;background:oklch(95% 0.014 70 / 0.7)">
+      <div style="max-width:1120px;margin:0 auto">
+        <div style="max-width:640px;margin:0 auto 44px;text-align:center">
+          <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(52% 0.07 145)">Servicios</div>
+          <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:16px 0 14px">Todo resuelto antes de llegar</h2>
+          <p style="font-size:16.5px;line-height:1.6;color:oklch(45% 0.01 75);margin:0">Las casas se entregan listas para usar. Estos son los servicios incluidos en cada estadía.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8.5a16 16 0 0 1 20 0"></path><path d="M5.5 12.5a11 11 0 0 1 13 0"></path><path d="M9 16.5a6 6 0 0 1 6 0"></path><circle cx="12" cy="20" r="1.2" fill="currentColor" stroke="none"></circle></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">WiFi en toda la casa</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Conexión estable para trabajar o mirar series después de la excursión.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(94% 0.035 60);color:oklch(55% 0.13 45);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 18h18"></path><path d="M7 10V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"></path></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Ropa de cama incluida</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Camas hechas con sábanas limpias y frazadas para el frío de la montaña.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="10" width="14" height="8" rx="2"></rect><path d="M3 10a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4"></path><path d="M20 12h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1"></path></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Cocina equipada</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Vajilla, utensilios, heladera y todo lo necesario para cocinar sin llevar nada.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(94% 0.035 60);color:oklch(55% 0.13 45);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4v16M9 4v16M14 4v16M19 4v16"></path><path d="M4 9h15M4 15h15"></path></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Calefacción</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">La casa siempre templada, incluso en los días de nieve.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M9.5 16V8h3.2a2.4 2.4 0 0 1 0 4.8H9.5"></path></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Estacionamiento propio</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Lugar para dejar el auto dentro del terreno, con sector techado en Gran Eluney.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(94% 0.035 60);color:oklch(55% 0.13 45);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"></path><path d="M6 9a6 6 0 0 1 12 0c0 3-2 4-2 6H8c0-2-2-3-2-6z"></path><path d="M9 21h6"></path><path d="M12 15v6"></path></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Quincho con parrilla</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Disponible a solicitud, para un asado en el patio del complejo.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"></path><circle cx="12" cy="11" r="2.5"></circle></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Ubicación a 5 minutos</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Barrio tranquilo, cerca del Centro Cívico y de los accesos a las rutas.</p>
+          </div>
+
+          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
+            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.04 150);color:oklch(52% 0.13 150);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5A8.5 8.5 0 0 1 8.4 19L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"></path></svg></div>
+            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Atención directa</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Nos escribís por WhatsApp y te respondemos nosotros, sin intermediarios.</p>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="eluney-section wrap">
-    <div>
-      <div class="eyebrow" style="color:var(--accent-blue)">EL ALMA DE LA CASA</div>
-      <h2>Eluney</h2>
-      <p>El nombre de la casa es un homenaje a Eluney, nuestra perra: amigable, juguetona y con una energía que no se cansa nunca. Le encanta jugar a la pelota, corretear por el jardín y salir a la nieve en invierno — es la mejor compañera, siempre lista para saludar con la cola moviéndose.</p>
-      <p>Es probable que te la encuentres paseando por el terreno durante tu estadía.</p>
-    </div>
-    <div class="eluney-photos">
-      <div><img src="images/eluney-1.png" alt="Foto de Eluney en la nieve"></div>
-      <div><img src="images/eluney-2.png" alt="Foto de Eluney jugando"></div>
-      <div><img src="images/eluney-3.png" alt="Foto de Eluney con la pelota"></div>
-      <div><img src="images/eluney-4.png" alt="Foto de Eluney en el jardín"></div>
-    </div>
-  </section>
-
-  <section class="marquee-section">
-    <h2>Todas las estaciones, mismo paisaje</h2>
-    <p>Nieve en invierno, verde y sol en verano — así se vive el terreno durante todo el año.</p>
-    <div class="marquee-viewport">
-      <div class="marquee-row">
-        <div><img src="images/shared-01.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-02.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-03.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-04.png" alt="Foto de la casa"></div>
-        <div><img src="images/shared-05.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-06.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-01.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-02.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-03.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-04.png" alt="Foto de la casa"></div>
-        <div><img src="images/shared-05.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-06.png" alt="Foto del jardín"></div>
-      </div>
-      <div class="marquee-row reverse">
-        <div><img src="images/shared-07.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-08.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-09.png" alt="Foto de la casa"></div>
-        <div><img src="images/shared-10.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-11.png" alt="Foto del jardín"></div>
-        <div><img src="images/snow.jpeg" alt="Foto de Eluney en la nieve"></div>
-        <div><img src="images/shared-07.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-08.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-09.png" alt="Foto de la casa"></div>
-        <div><img src="images/shared-10.png" alt="Foto del jardín"></div>
-        <div><img src="images/shared-11.png" alt="Foto del jardín"></div>
-        <div><img src="images/snow.jpeg" alt="Foto de Eluney en la nieve"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="map-section section-soft">
-    <div class="map-grid">
+    <section style="max-width:1120px;margin:0 auto;padding:clamp(64px,10vw,110px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
       <div>
-        <h2>Dónde estamos</h2>
-        <p>Tronador 2084, Barrio La Cumbre, San Carlos de Bariloche — a menos de 5 minutos del Centro Cívico y muy cerca de los accesos a las rutas de excursión.</p>
-        <a href="#" class="map-link wa-link" target="_blank" rel="noopener">Preguntar por la ubicación →</a>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(48% 0.10 210)">EL ALMA DE LA CASA</div>
+        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(28px,3.8vw,38px);font-weight:700;letter-spacing:-0.03em;margin:16px 0 18px">Eluney</h2>
+        <p style="font-size:16.5px;line-height:1.7;color:oklch(45% 0.01 75);margin:0 0 14px">El nombre de la casa es un homenaje a Eluney, nuestra perra: amigable, juguetona y con una energía que no se cansa nunca. Le encanta jugar a la pelota, corretear por el jardín y salir a la nieve en invierno — es la mejor compañera, siempre lista para saludar y jugar.</p>
+        <p style="font-size:15px;line-height:1.6;color:oklch(52% 0.01 75);margin:0">Es probable que te la encuentres paseando por el patio durante tu estadía.</p>
       </div>
-      <div class="map-embed">
-        <iframe title="Mapa Bariloche" loading="lazy" src="https://maps.google.com/maps?q=Tronador+2084,+Barrio+La+Cumbre,+San+Carlos+de+Bariloche&output=embed"></iframe>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="aspect-ratio:1;border-radius:18px;overflow:hidden"><img class="fill" loading="lazy" src="images/eluney-1.png" alt="Eluney en la nieve"></div>
+        <div style="aspect-ratio:1;border-radius:18px;overflow:hidden"><img class="fill" loading="lazy" src="images/eluney-2.png" alt="Eluney jugando"></div>
+        <div style="aspect-ratio:1;border-radius:18px;overflow:hidden"><img class="fill" loading="lazy" src="images/eluney-3.png" alt="Eluney con la pelota"></div>
+        <div style="aspect-ratio:1;border-radius:18px;overflow:hidden"><img class="fill" loading="lazy" src="images/eluney-4.png" alt="Eluney en el jardín"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="activities-section wrap">
-    <h2>Actividades cerca de Bariloche</h2>
-    <p>Lagos, montañas y caminatas a un paso del complejo — todo lo que hace de Bariloche un destino para todo el año.</p>
-    <div class="activities-grid">
-      <div class="activity-card">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Base_del_Cerro_Catedral_en_Bariloche._%28Patagonia_Argentina%29_20.JPG" alt="Cerro Catedral" loading="lazy">
-        <div class="activity-overlay">
-          <h3>Cerro Catedral</h3>
-          <p>El centro de esquí y snowboard más grande de Sudamérica, con vistas a toda la cordillera.</p>
+    <section style="padding:0 0 clamp(64px,10vw,110px)">
+      <div style="max-width:760px;margin:0 auto 36px;padding:0 24px;text-align:center">
+        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 12px">Todas las estaciones, mismo paisaje</h2>
+        <p style="color:oklch(47% 0.01 75);font-size:16.5px;line-height:1.6;margin:0">Nieve en invierno, verde y sol en verano. Así se vive la casa durante todo el año.</p>
+      </div>
+      <div style="overflow:hidden">
+        <div id="marquee-a" style="display:flex;gap:14px;width:max-content;animation:marquee 34s linear infinite;margin-bottom:14px"></div>
+        <div id="marquee-b" style="display:flex;gap:14px;width:max-content;margin-left:-110px;animation:marquee 34s linear infinite reverse"></div>
+      </div>
+    </section>
+
+    <section style="padding:clamp(56px,8vw,96px) 24px;background:oklch(95% 0.014 70 / 0.7)">
+      <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px;align-items:center">
+        <div>
+          <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 16px">Dónde estamos</h2>
+          <p style="font-size:16.5px;line-height:1.7;color:oklch(45% 0.01 75);margin:0 0 22px">Tronador 2084, Barrio La Cumbre, San Carlos de Bariloche. A menos de 5 minutos del Centro Cívico y muy cerca de los accesos a las rutas de excursión.</p>
+          <a href="#" class="wa-link" target="_blank" rel="noopener" style="font-size:14.5px;font-weight:600;color:oklch(48% 0.10 210)">Preguntar por la ubicación →</a>
+        </div>
+        <div>
+          <div style="border-radius:18px;overflow:hidden;height:320px;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12)">
+            <iframe title="Mapa Bariloche" loading="lazy" style="width:100%;height:100%;border:0;display:block" src="https://maps.google.com/maps?q=Tronador+2084,+Barrio+La+Cumbre,+San+Carlos+de+Bariloche&amp;output=embed"></iframe>
+          </div>
         </div>
       </div>
-      <div class="activity-card">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago_Nahuel_Huapi.jpg" alt="Lago Nahuel Huapi" loading="lazy">
-        <div class="activity-overlay">
-          <h3>Lago Nahuel Huapi</h3>
-          <p>Playas, kayak y paseos en catamarán en un lago de origen glaciar rodeado de montañas.</p>
+    </section>
+
+    <section style="max-width:1120px;margin:0 auto;padding:clamp(64px,10vw,110px) 24px">
+      <div style="max-width:640px;margin:0 auto 40px;text-align:center">
+        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 12px">Actividades cerca de Bariloche</h2>
+        <p style="color:oklch(47% 0.01 75);font-size:16.5px;line-height:1.6;margin:0">Lagos, montañas y caminatas a un paso del complejo. Todo lo que hace de Bariloche un destino para todo el año.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+
+        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+          <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Base_del_Cerro_Catedral_en_Bariloche._%28Patagonia_Argentina%29_20.JPG" alt="Cerro Catedral">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
+            <div style="padding:18px">
+              <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Cerro Catedral</h3>
+              <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">El centro de esquí y snowboard más grande de Sudamérica, con vistas a toda la cordillera.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+          <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago_Nahuel_Huapi.jpg" alt="Lago Nahuel Huapi">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
+            <div style="padding:18px">
+              <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Lago Nahuel Huapi</h3>
+              <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">Playas, kayak y paseos en catamarán en un lago de origen glaciar rodeado de montañas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+          <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cerro_otto_teleferico.jpg" alt="Cerro Otto">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
+            <div style="padding:18px">
+              <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Cerro Otto</h3>
+              <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">Teleférico con vistas panorámicas a lagos y montañas, ideal para una tarde de paseo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+          <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bariloche-_Argentina2.jpg" alt="Circuito Chico">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
+            <div style="padding:18px">
+              <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Circuito Chico</h3>
+              <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">Bosques, miradores y caminatas junto al lago — el paseo más clásico de Bariloche.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contacto" style="padding:0 24px clamp(72px,10vw,120px)">
+      <div style="max-width:860px;margin:0 auto;text-align:center;padding:clamp(44px,6vw,72px) 32px;background:oklch(100% 0 0 / 0.6);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:32px;box-shadow:0 24px 60px oklch(30% 0.02 75 / 0.14)">
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(48% 0.10 210);margin-bottom:14px">CONTACTO</div>
+        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,38px);font-weight:700;letter-spacing:-0.03em;margin:0 0 14px">¿Consultamos tu estadía?</h2>
+        <p style="font-size:16.5px;line-height:1.6;color:oklch(45% 0.01 75);margin:0 auto 32px;max-width:520px">Escribinos por WhatsApp o seguinos en Instagram para ver más fotos del complejo.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a href="#" class="wa-link h-lift" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;background:oklch(56% 0.14 150);color:white;padding:15px 30px;border-radius:100px;transition:transform .2s ease">WhatsApp</a>
+          <a href="https://www.instagram.com/alquiler.bariloche.eluney?igsh=MTYwdDgweTUzbW9sdg==" class="h-lift" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;background:oklch(24% 0.01 75);color:white;padding:15px 30px;border-radius:100px;transition:transform .2s ease">Instagram</a>
         </div>
       </div>
-      <div class="activity-card">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cerro_otto_teleferico.jpg" alt="Cerro Otto" loading="lazy">
-        <div class="activity-overlay">
-          <h3>Cerro Otto</h3>
-          <p>Teleférico con vistas panorámicas a lagos y montañas, ideal para una tarde de paseo.</p>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bariloche-_Argentina2.jpg" alt="Circuito Chico" loading="lazy">
-        <div class="activity-overlay">
-          <h3>Circuito Chico</h3>
-          <p>Bosques, miradores y caminatas junto al lago — el paseo más clásico de Bariloche.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contacto" class="contact-section">
-    <div class="eyebrow" style="color:var(--accent-blue);margin-bottom:12px">CONTACTO</div>
-    <h2>¿Consultamos tu estadía?</h2>
-    <p>Escribinos por WhatsApp o seguinos en Instagram para ver más fotos del complejo.</p>
-    <div class="contact-ctas">
-      <a href="#" class="btn-whatsapp wa-link" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://www.instagram.com/alquiler.bariloche.eluney?igsh=MTYwdDgweTUzbW9sdg==" target="_blank" rel="noopener" class="btn-instagram">Instagram</a>
-    </div>
-  </section>
-</main>
+  </main>
 
-<!-- ===================== HOUSE DETAIL TEMPLATE (shared markup, filled per house) ===================== -->
-<main id="view-house" hidden>
-  <div class="back-link"><a href="#" data-nav="home">← Volver al inicio</a></div>
+  <main id="view-house" hidden></main>
 
-  <section class="house-hero">
-    <div class="house-hero-text">
-      <div class="eyebrow" data-field="eyebrow"></div>
-      <h1 data-field="name"></h1>
-      <p data-field="tagline"></p>
-      <div class="house-hero-stats" data-field="stats"></div>
-      <a href="#" class="house-hero-cta wa-link" target="_blank" rel="noopener">Consultar disponibilidad</a>
-    </div>
-    <div class="house-hero-photo"><img data-field="heroImage" alt=""></div>
-  </section>
-
-  <section class="about-section">
-    <h2>Sobre esta casa</h2>
-    <p data-field="description"></p>
-  </section>
-
-  <section class="amenities-section section-soft">
-    <div class="amenities-inner">
-      <h2>Comodidades</h2>
-      <p>Todo lo que necesitás para sentirte como en casa.</p>
-      <div class="amenities-grid" data-field="amenities"></div>
-    </div>
-  </section>
-
-  <section class="gallery-section">
-    <h2>Galería</h2>
-    <div class="gallery-viewport" data-field="gallery">
-      <button class="gallery-arrow prev" aria-label="Foto anterior">‹</button>
-      <button class="gallery-arrow next" aria-label="Foto siguiente">›</button>
-    </div>
-    <div class="gallery-dots" data-field="galleryDots"></div>
-  </section>
-
-  <section class="map-section section-soft">
-    <div class="map-grid">
-      <div>
-        <h2>Cómo llegar</h2>
-        <p><span data-field="name"></span> está en Tronador 2084, Barrio La Cumbre — a menos de 5 minutos del Centro Cívico de Bariloche y con salida directa hacia los accesos de ruta que llevan a las excursiones.</p>
-      </div>
-      <div class="map-embed">
-        <iframe title="Mapa Bariloche" loading="lazy" src="https://maps.google.com/maps?q=Tronador+2084,+Barrio+La+Cumbre,+San+Carlos+de+Bariloche&output=embed"></iframe>
+  <footer style="padding:36px 24px 44px">
+    <div style="max-width:1120px;margin:0 auto;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;background:oklch(100% 0 0 / 0.5);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid oklch(100% 0 0 / 0.7);border-radius:24px">
+      <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:16px;letter-spacing:-0.02em">Casa Eluney</div>
+      <div style="display:flex;gap:22px;font-size:13.5px;align-items:center">
+        <a href="#" class="wa-link" target="_blank" rel="noopener" style="font-weight:500;color:oklch(48% 0.10 210)">WhatsApp</a>
+        <a href="https://www.instagram.com/alquiler.bariloche.eluney?igsh=MTYwdDgweTUzbW9sdg==" target="_blank" rel="noopener" style="font-weight:500;color:oklch(48% 0.10 210)">Instagram</a>
+        <span style="color:oklch(60% 0.01 75)">© 2026</span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="reviews-section">
-    <h2>Reseñas de huéspedes</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">☆ ☆ ☆ ☆ ☆</div>
-        <p data-field="reviewPlaceholder"></p>
-        <div class="review-name">Nombre del huésped</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">☆ ☆ ☆ ☆ ☆</div>
-        <p>Espacio para otro comentario de huésped.</p>
-        <div class="review-name">Nombre del huésped</div>
-      </div>
-    </div>
-  </section>
+  <a href="#" class="wa-link h-lift3" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:oklch(56% 0.14 150);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px oklch(30% 0.02 150 / 0.38);z-index:60;transition:transform .2s ease">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5A8.5 8.5 0 0 1 8.4 19L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+  </a>
 
-  <section class="rules-section">
-    <h2>Reglas de la casa</h2>
-    <div class="rules-list">
-      <div class="rule"><span class="rule-dot" data-field="ruleDot"></span>Check-in desde las 15:00 · Check-out hasta las 10:00</div>
-      <div class="rule"><span class="rule-dot" data-field="ruleDot"></span>No se permite fumar en el interior</div>
-      <div class="rule"><span class="rule-dot" data-field="ruleDot"></span>Respetar el descanso del barrio a partir de las 22:00</div>
-      <div class="rule"><span class="rule-dot" data-field="ruleDot"></span>Capacidad máxima según la casa reservada</div>
-      <div class="rule"><span class="rule-dot" data-field="ruleDot"></span>No se aceptan mascotas</div>
-    </div>
-  </section>
-
-  <section class="house-cta-section">
-    <h2>¿Reservamos tu estadía en <span data-field="name"></span>?</h2>
-    <p>Contanos las fechas y cuántos son — te respondemos por WhatsApp.</p>
-    <a href="#" class="house-cta wa-link" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-  </section>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">Casa Eluney</div>
-      <div class="footer-tagline">Dos casas, un mismo terreno en Bariloche. El nombre es un homenaje a Eluney, la mascota de la casa: amigable, juguetona y con energía para correr todo el día.</div>
-    </div>
-    <div class="footer-links">
-      <a href="#" class="wa-link" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://www.instagram.com/alquiler.bariloche.eluney?igsh=MTYwdDgweTUzbW9sdg==" target="_blank" rel="noopener">Instagram</a>
-      <span class="footer-copy">© 2026</span>
-    </div>
-  </div>
-</footer>
-
-<a href="#" class="wa-float wa-link" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span></span></a>
-
+</div>
+<script src="js/data.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
