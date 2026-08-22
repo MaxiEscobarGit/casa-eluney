@@ -148,6 +148,7 @@ function render() {
 
   const href = house ? waHref(`Hola! Quiero consultar disponibilidad de ${house.name} en Bariloche.`) : HOME_WA;
   document.querySelectorAll('.wa-link').forEach((a) => { a.href = href; });
+  document.querySelectorAll('.ig-link').forEach((a) => { a.href = IG_URL; });
 
   window.scrollTo(0, 0);
 }
@@ -188,3 +189,4 @@ document.addEventListener('click', (e) => {
 renderMarquee(document.getElementById('marquee-a'), MARQUEE_A);
 renderMarquee(document.getElementById('marquee-b'), MARQUEE_B);
 render();
+document.getElementById('home-map').src = MAP_SRC;
