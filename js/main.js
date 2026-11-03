@@ -1,194 +1,28 @@
-// Casa Eluney — lógica de render y ruteo por hash
+// Casa Eluney — interacciones. El contenido ya viene en el HTML (lo genera scripts/build.mjs).
 
-function iconFor(a) {
-  const s = a.toLowerCase();
-  if (s.includes('wifi')) return 'wifi';
-  if (s.includes('calefac')) return 'heat';
-  if (s.includes('cocina') || s.includes('microondas')) return 'kitchen';
-  if (s.includes('estacion')) return 'parking';
-  if (s === 'tv' || s.includes(' tv')) return 'tv';
-  if (s.includes('sábana') || s.includes('sabana') || s.includes('cama')) return 'bed';
-  if (s.includes('baño')) return 'bath';
-  if (s.includes('patio') || s.includes('quincho') || s.includes('parrilla')) return 'outdoor';
-  if (s.includes('mascota')) return 'pet';
-  return 'check';
+const HOUSE = HOUSES[document.body.dataset.house] || null;
+
+// Enlaces viejos con hash (#pequena, #gran) → páginas nuevas.
+const legacyHouse = HOUSES[window.location.hash.slice(1)];
+if (legacyHouse) window.location.replace(legacyHouse.path);
+
+document.querySelectorAll('.nav-house').forEach((a) => a.classList.toggle('active', !!HOUSE && a.dataset.house === HOUSE.id));
+
+// Carruseles en bucle: se duplica el contenido (oculto para lectores de pantalla) para que no corte.
+function loopClone(track) {
+  if (!track || track.dataset.cloned) return;
+  track.dataset.cloned = '1';
+  [...track.children].forEach((node) => {
+    const copy = node.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.querySelectorAll('img').forEach((img) => { img.alt = ''; });
+    track.appendChild(copy);
+  });
 }
+loopClone(document.getElementById('marquee-a'));
+loopClone(document.getElementById('marquee-b'));
+document.querySelectorAll('.reviews-track').forEach(loopClone);
 
-// Miniatura (600px) generada en images/sm/ para grillas y carruseles; la original queda para el visor.
-const thumb = (src) => src.replace('images/', 'images/sm/').replace(/\.jpe?g$/, '.webp');
-
-// La cinta de fotos se duplica para que el bucle de la animación no corte.
-function renderMarquee(el, list) {
-  el.innerHTML = [...list, ...list]
-    .map((src) => `<div class="marquee-tile"><img class="fill" loading="lazy" decoding="async" src="${thumb(src)}" alt=""></div>`)
-    .join('');
-}
-
-const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-// Carrusel de reseñas: la lista se duplica para que el bucle (derecha a izquierda) no corte.
-function reviewsHTML(accent) {
-  if (!REVIEWS.length) return '';
-  const card = (r, hidden) => `
-        <figure class="review-card glass"${hidden ? ' aria-hidden="true"' : ''}>
-          <div style="display:flex;gap:10px;align-items:center">
-            <div class="review-score" style="background:${accent}" aria-label="Puntuación ${esc(r.score)} de 10">${esc(r.score)}</div>
-            ${r.title ? `<strong class="review-title">${esc(r.title)}</strong>` : ''}
-          </div>
-          <blockquote>${esc(r.text)}</blockquote>
-          <figcaption>${r.name ? `<strong>${esc(r.name)}</strong>${r.country ? ` · ${esc(r.country)}` : ''}` : 'Huésped en Booking.com'}</figcaption>
-        </figure>`;
-  return `
-    <section class="reviews" style="padding:clamp(56px,8vw,88px) 0 0">
-      <div style="max-width:1120px;margin:0 auto 22px;padding:0 24px;display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
-        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0">Lo que dicen nuestros huéspedes</h2>
-        <a href="${BOOKING_URL}" target="_blank" rel="noopener" style="font-size:13.5px;font-weight:600;color:${accent}">Ver todas en Booking.com →</a>
-      </div>
-      <div class="reviews-wrap">
-        <div class="reviews-track">${REVIEWS.map((r) => card(r)).join('')}${REVIEWS.map((r) => card(r, true)).join('')}</div>
-      </div>
-    </section>`;
-}
-
-function houseHTML(house) {
-  const amenities = (PET_FRIENDLY ? [...house.baseAmenities, 'Apto para mascotas'] : house.baseAmenities)
-    .map((a) => `
-      <div class="list-row">
-        <div class="list-icon" style="background:${house.accentSoft};color:${house.accent}">${ICONS[iconFor(a)]}</div>
-        <div class="list-label">${a}</div>
-      </div>`).join('');
-
-  const stats = house.stats.map((s) => `
-      <div class="stat glass">
-        <div style="font-family:'Sora',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.02em">${s.value}</div>
-        <div style="font-size:12.5px;color:oklch(50% 0.01 75);margin-top:2px">${s.label}</div>
-      </div>`).join('');
-
-  const gallery = house.photos.map((src, n) => `
-      <button type="button" class="gallery-item reveal-photo h-photo press" data-photo="${n}" aria-label="Ampliar foto ${n + 1} de ${house.name}" style="--tilt:${TILTS[n % TILTS.length]}deg;break-inside:avoid;margin-bottom:10px;border-radius:14px;overflow:hidden;box-shadow:0 10px 24px oklch(30% 0.02 75 / 0.14);aspect-ratio:${RATIOS[n % RATIOS.length]};transition:transform .35s ease">
-        <img class="fill" loading="lazy" decoding="async" src="${thumb(src)}" alt="Foto ${n + 1} de ${house.name}">
-      </button>`).join('');
-
-  const rules = HOUSE_RULES.map((rule) => `
-        <div class="list-row">
-          <span class="list-dot" style="background:${house.accent}"></span><span class="list-label" style="color:oklch(40% 0.01 75)">${rule}</span>
-        </div>`).join('');
-
-  return `
-    <div class="nav-below-header-lg" style="max-width:1120px;margin:0 auto;padding:96px 24px 0">
-      <a href="#" data-nav="home" style="font-size:13.5px;font-weight:500;color:oklch(48% 0.01 75)">← Volver al inicio</a>
-    </div>
-
-    <section class="grid-split" style="max-width:1120px;margin:0 auto;padding:28px 24px clamp(56px,8vw,88px)">
-      <div style="animation:fadeUp .6s ease both">
-        <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${house.accent}">${house.eyebrow}</div>
-        <h1 style="font-family:'Sora',sans-serif;font-size:clamp(32px,5.2vw,54px);line-height:1.05;font-weight:700;letter-spacing:-0.035em;margin:12px 0 12px">${house.name}</h1>
-        <p style="font-size:clamp(16px,2.2vw,18.5px);line-height:1.6;color:oklch(45% 0.01 75);margin:0 0 22px;max-width:480px">${house.tagline}</p>
-        <div class="stats">${stats}</div>
-        <a href="#" class="wa-link h-lift btn-cta" target="_blank" rel="noopener" style="font-size:15px;font-weight:600;background:${house.accent};color:oklch(99% 0.005 75);padding:15px 28px;border-radius:100px;transition:transform .2s ease">Consultar disponibilidad</a>
-      </div>
-      <div>
-        <div style="border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 22px 55px oklch(30% 0.02 75 / 0.16)"><img class="fill" src="${house.heroImage}" srcset="${thumb(house.heroImage)} 600w, ${house.heroImage} 1600w" sizes="(min-width:769px) 540px, 92vw" alt="Foto principal de ${house.name}"></div>
-      </div>
-    </section>
-
-    <section style="max-width:820px;margin:0 auto;padding:0 24px clamp(56px,8vw,88px)">
-      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 16px">Sobre esta casa</h2>
-      <p style="font-size:clamp(16px,2vw,17px);line-height:1.7;color:oklch(42% 0.01 75);margin:0">${house.description}</p>
-    </section>
-
-    <section style="padding:clamp(56px,8vw,88px) 24px;background:oklch(95% 0.014 70 / 0.7)">
-      <div style="max-width:1000px;margin:0 auto">
-        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 10px">Comodidades</h2>
-        <p style="font-size:16px;color:oklch(48% 0.01 75);margin:0 0 22px">Todo lo que necesitás para sentirte como en casa.</p>
-        <div class="list-group cols-2 glass">${amenities}</div>
-      </div>
-    </section>
-
-    <section style="max-width:1120px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px 0">
-      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 24px;text-align:center">Galería</h2>
-      <div class="photo-masonry" style="column-count:2;column-gap:10px;max-width:840px;margin:0 auto">${gallery}</div>
-    </section>
-
-    <section style="padding:clamp(56px,8vw,88px) 24px;margin-top:clamp(56px,8vw,88px);background:oklch(95% 0.014 70 / 0.7)">
-      <div class="grid-split" style="max-width:1120px;margin:0 auto">
-        <div>
-          <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 16px">Cómo llegar</h2>
-          <p style="font-size:16.5px;line-height:1.7;color:oklch(45% 0.01 75);margin:0">${house.name} está en Tronador 2084, Barrio La Cumbre — a menos de 5 minutos del Centro Cívico de Bariloche y con salida directa hacia los accesos de ruta que llevan a las excursiones.</p>
-        </div>
-        <div>
-          <div class="map-frame">
-            <iframe title="Mapa Bariloche" loading="lazy" style="width:100%;height:100%;border:0;display:block" src="${MAP_SRC}"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    ${reviewsHTML(house.accent)}
-
-    <section style="max-width:1000px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px 0">
-      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 20px">Reglas de la casa</h2>
-      <div class="list-group glass">${rules}</div>
-    </section>
-
-    <section style="padding:clamp(64px,9vw,110px) 24px">
-      <div style="max-width:860px;margin:0 auto;text-align:center;padding:clamp(32px,6vw,72px) clamp(20px,5vw,32px);background:oklch(100% 0 0 / 0.6);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:32px;box-shadow:0 24px 60px oklch(30% 0.02 75 / 0.14)">
-        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(25px,3.4vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 14px">¿Reservamos tu estadía en ${house.name}?</h2>
-        <p style="font-size:16.5px;line-height:1.6;color:oklch(45% 0.01 75);margin:0 0 24px">Contanos las fechas y cuántos son — te respondemos por WhatsApp.</p>
-        <a href="#" class="wa-link h-lift btn-cta" target="_blank" rel="noopener" style="font-size:15px;font-weight:600;background:${house.accent};color:oklch(99% 0.005 75);padding:15px 30px;border-radius:100px;transition:transform .2s ease">Escribir por WhatsApp</a>
-      </div>
-    </section>`;
-}
-
-function currentHouseId() {
-  const h = (window.location.hash || '').replace('#', '');
-  return HOUSES[h] ? h : null;
-}
-
-function render() {
-  if (typeof navMobile !== 'undefined') closeMobileNav();
-  const houseId = currentHouseId();
-  const house = houseId ? HOUSES[houseId] : null;
-
-  document.querySelectorAll('.nav-house').forEach((a) => a.classList.toggle('active', a.dataset.house === houseId));
-
-  if (house) {
-    viewHouse.innerHTML = houseHTML(house);
-    viewHome.hidden = true;
-    viewHouse.hidden = false;
-  } else {
-    viewHouse.hidden = true;
-    viewHouse.innerHTML = '';
-    viewHome.hidden = false;
-  }
-
-  const href = house ? waHref(`Hola! Quiero consultar disponibilidad de ${house.name} en Bariloche.`) : HOME_WA;
-  document.querySelectorAll('.wa-link').forEach((a) => { a.href = href; });
-  document.querySelectorAll('.ig-link').forEach((a) => { a.href = IG_URL; });
-
-  // #resenas, #ubicacion, #actividades: secciones de la home; cualquier otro hash vuelve arriba.
-  const section = !house && window.location.hash && document.getElementById(window.location.hash.slice(1));
-  if (section) {
-    const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
-    section.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
-  } else {
-    window.scrollTo(0, 0);
-  }
-}
-
-// Los enlaces "volver al inicio" viven tanto en el header como dentro de la vista de casa.
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('[data-nav="home"]');
-  if (!link) return;
-  e.preventDefault();
-  if (window.location.hash) window.location.hash = '';
-  else render();
-});
-
-window.addEventListener('hashchange', render);
-
-const viewHome = document.getElementById('view-home');
-const viewHouse = document.getElementById('view-house');
 const navToggle = document.getElementById('nav-toggle');
 const navMobile = document.getElementById('nav-mobile');
 
@@ -222,7 +56,7 @@ const lbTrack = lightbox.querySelector('.lb-track');
 const lbCount = lightbox.querySelector('.lb-count');
 
 function openLightbox(photos, index, name) {
-  lbTrack.innerHTML = photos.map((src, n) => `<div class="lb-slide"><img src="${src}" alt="Foto ${n + 1} de ${name}" loading="${Math.abs(n - index) < 2 ? 'eager' : 'lazy'}"></div>`).join('');
+  lbTrack.innerHTML = photos.map((src, n) => `<div class="lb-slide"><img src="${src}" alt="${(ALT[src.split('/').pop().replace(/\.\w+$/, '')] || `Foto ${n + 1} de ${name}`).replace(/"/g, '&quot;')}" loading="${Math.abs(n - index) < 2 ? 'eager' : 'lazy'}"></div>`).join('');
   lightbox.showModal();
   lbTrack.scrollLeft = index * lbTrack.clientWidth;
   updateCount();
@@ -242,11 +76,8 @@ lightbox.addEventListener('keydown', (e) => {
 });
 document.addEventListener('click', (e) => {
   const item = e.target.closest('[data-photo]');
-  const house = HOUSES[currentHouseId()];
-  if (item && house) openLightbox(house.photos, Number(item.dataset.photo), house.name);
+  if (item && HOUSE) openLightbox(HOUSE.photos, Number(item.dataset.photo), HOUSE.name);
 });
-
-document.getElementById('resenas').innerHTML = reviewsHTML('oklch(48% 0.10 210)');
 
 // Reseñas: avanza solo (derecha a izquierda) sobre un scroll nativo, así también se puede deslizar con el dedo.
 // Se pausa mientras se toca o se pasa el mouse, y retoma unos segundos después. La lista está duplicada:
@@ -272,7 +103,6 @@ function tickReviews(now) {
   lastFrame = now;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.reviews-wrap').forEach((wrap) => {
-    if (!wrap.offsetParent) return; // vista oculta
     setupReviewsCarousel(wrap);
     // Si el usuario lo movió (dedo, trackpad, momentum), seguimos desde donde lo dejó.
     if (Math.abs(wrap.scrollLeft - wrap._pos) > 2) { wrap._pos = wrap.scrollLeft; wrap._pausedUntil = Math.max(wrap._pausedUntil, now + RESUME_AFTER); }
@@ -286,7 +116,3 @@ function tickReviews(now) {
   requestAnimationFrame(tickReviews);
 }
 requestAnimationFrame(tickReviews);
-renderMarquee(document.getElementById('marquee-a'), MARQUEE_A);
-renderMarquee(document.getElementById('marquee-b'), MARQUEE_B);
-render();
-document.getElementById('home-map').src = MAP_SRC;
