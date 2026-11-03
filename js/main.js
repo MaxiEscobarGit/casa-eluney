@@ -163,7 +163,14 @@ function render() {
   document.querySelectorAll('.wa-link').forEach((a) => { a.href = href; });
   document.querySelectorAll('.ig-link').forEach((a) => { a.href = IG_URL; });
 
-  window.scrollTo(0, 0);
+  // #resenas, #ubicacion, #actividades: secciones de la home; cualquier otro hash vuelve arriba.
+  const section = !house && window.location.hash && document.getElementById(window.location.hash.slice(1));
+  if (section) {
+    const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    section.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
+  } else {
+    window.scrollTo(0, 0);
+  }
 }
 
 // Los enlaces "volver al inicio" viven tanto en el header como dentro de la vista de casa.
@@ -236,7 +243,7 @@ document.addEventListener('click', (e) => {
   if (item && house) openLightbox(house.photos, Number(item.dataset.photo), house.name);
 });
 
-document.getElementById('home-reviews').innerHTML = reviewsHTML('oklch(48% 0.10 210)');
+document.getElementById('resenas').innerHTML = reviewsHTML('oklch(48% 0.10 210)');
 renderMarquee(document.getElementById('marquee-a'), MARQUEE_A);
 renderMarquee(document.getElementById('marquee-b'), MARQUEE_B);
 render();
