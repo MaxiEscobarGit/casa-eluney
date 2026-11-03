@@ -38,8 +38,6 @@ const HOUSES = {
       'images/pequena-06.webp', 'images/pequena-07.webp', 'images/pequena-08.webp', 'images/pequena-09.webp', 'images/pequena-10.webp',
       ...SHARED,
     ],
-    // Reseñas reales: { stars: 5, text: '...', name: '...' }. Sin reseñas, la sección no se muestra.
-    reviews: [],
   },
   gran: {
     id: 'gran',
@@ -58,9 +56,13 @@ const HOUSES = {
       'images/gran-10.webp', 'images/gran-11.webp',
       ...SHARED,
     ],
-    reviews: [],
   },
 };
+
+// Reseñas reales de Booking.com, copiadas textuales. Se muestran en la home y en las dos casas.
+// Formato: { name: 'Nombre', country: 'País', score: 10, text: '...' }. Sin reseñas, la sección no se muestra.
+const BOOKING_URL = 'https://www.booking.com/hotel/ar/eluney-casa-en-bariloche.es.html#tab-reviews';
+const REVIEWS = [];
 
 const HOUSE_RULES = [
   'Check-in desde las 15:00 · Check-out hasta las 10:00',

@@ -21,6 +21,29 @@ function renderMarquee(el, list) {
     .join('');
 }
 
+const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+// Carrusel de reseñas: la lista se duplica para que el bucle (derecha a izquierda) no corte.
+function reviewsHTML(accent) {
+  if (!REVIEWS.length) return '';
+  const card = (r, hidden) => `
+        <figure class="review-card glass"${hidden ? ' aria-hidden="true"' : ''}>
+          <div class="review-score" style="background:${accent}">${esc(r.score)}</div>
+          <blockquote>${esc(r.text)}</blockquote>
+          <figcaption><strong>${esc(r.name)}</strong>${r.country ? ` · ${esc(r.country)}` : ''}</figcaption>
+        </figure>`;
+  return `
+    <section class="reviews" style="padding:clamp(56px,8vw,88px) 0 0">
+      <div style="max-width:1120px;margin:0 auto 22px;padding:0 24px;display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
+        <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0">Lo que dicen nuestros huéspedes</h2>
+        <a href="${BOOKING_URL}" target="_blank" rel="noopener" style="font-size:13.5px;font-weight:600;color:${accent}">Ver todas en Booking.com →</a>
+      </div>
+      <div class="reviews-wrap">
+        <div class="reviews-track">${REVIEWS.map((r) => card(r)).join('')}${REVIEWS.map((r) => card(r, true)).join('')}</div>
+      </div>
+    </section>`;
+}
+
 function houseHTML(house) {
   const amenities = (PET_FRIENDLY ? [...house.baseAmenities, 'Apto para mascotas'] : house.baseAmenities)
     .map((a) => `
@@ -43,13 +66,6 @@ function houseHTML(house) {
   const rules = HOUSE_RULES.map((rule) => `
         <div class="list-row">
           <span class="list-dot" style="background:${house.accent}"></span><span class="list-label" style="color:oklch(40% 0.01 75)">${rule}</span>
-        </div>`).join('');
-
-  const reviews = (house.reviews || []).map((r) => `
-        <div class="glass" style="border-radius:22px;padding:22px">
-          <div style="font-size:13px;color:${house.accent};letter-spacing:.12em;margin-bottom:10px" aria-label="${r.stars} de 5 estrellas">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
-          <p style="font-size:15px;line-height:1.6;color:oklch(40% 0.01 75);margin:0 0 12px">${r.text}</p>
-          <div style="font-size:13px;font-weight:600;color:oklch(45% 0.01 75)">${r.name}</div>
         </div>`).join('');
 
   return `
@@ -102,10 +118,7 @@ function houseHTML(house) {
       </div>
     </section>
 
-    ${reviews ? `<section style="max-width:1000px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px 0">
-      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 20px">Reseñas de huéspedes</h2>
-      <div class="grid-cards">${reviews}</div>
-    </section>` : ''}
+    ${reviewsHTML(house.accent)}
 
     <section style="max-width:1000px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px 0">
       <h2 style="font-family:'Sora',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.03em;margin:0 0 20px">Reglas de la casa</h2>
@@ -220,6 +233,7 @@ document.addEventListener('click', (e) => {
   if (item && house) openLightbox(house.photos, Number(item.dataset.photo), house.name);
 });
 
+document.getElementById('home-reviews').innerHTML = reviewsHTML('oklch(48% 0.10 210)');
 renderMarquee(document.getElementById('marquee-a'), MARQUEE_A);
 renderMarquee(document.getElementById('marquee-b'), MARQUEE_B);
 render();
