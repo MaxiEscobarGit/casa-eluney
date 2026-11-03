@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -67,7 +67,7 @@
   <header style="position:fixed;top:0;left:0;right:0;z-index:50;padding:12px 16px">
     <div style="max-width:1120px;margin:0 auto;padding:10px 14px 10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;background:oklch(99% 0.006 75 / 0.62);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid oklch(100% 0 0 / 0.55);border-radius:100px;box-shadow:0 1px 0 oklch(100% 0 0 / 0.6) inset,0 10px 34px oklch(30% 0.02 75 / 0.12)">
       <a href="#" data-nav="home" style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px;letter-spacing:-0.02em;color:oklch(24% 0.01 75)">Casa Eluney</a>
-      <button id="nav-toggle" class="nav-toggle" aria-label="Menú" aria-expanded="false">
+      <button id="nav-toggle" class="nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="nav-mobile">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       <nav id="main-nav" style="align-items:center;gap:6px;flex-wrap:nowrap">
@@ -89,7 +89,7 @@
   <main id="view-home">
 
     <section class="nav-below-header" style="position:relative;padding:16px">
-      <div style="position:relative;max-width:1240px;margin:0 auto;border-radius:34px;overflow:hidden;min-height:78vh;display:flex;align-items:flex-end;box-shadow:0 30px 80px oklch(30% 0.02 75 / 0.22)">
+      <div class="hero-box" style="position:relative;max-width:1240px;margin:0 auto;border-radius:34px;overflow:hidden;display:flex;align-items:flex-end;box-shadow:0 30px 80px oklch(30% 0.02 75 / 0.22)">
         <div class="hero-photo-desktop" style="position:absolute;inset:0;z-index:0">
           <img class="fill" src="images/hero-desktop.jpeg" alt="Las casas en invierno, con nieve" fetchpriority="high">
         </div>
@@ -103,8 +103,8 @@
             <h1 style="font-family:'Sora',sans-serif;font-size:clamp(38px,7vw,68px);line-height:1.02;font-weight:700;margin:14px 0 16px;letter-spacing:-0.035em;color:white;text-shadow:0 2px 24px oklch(18% 0.02 250 / 0.45)">Casa Eluney</h1>
             <p style="font-size:clamp(15px,2.2vw,18px);line-height:1.55;color:oklch(98% 0.005 75 / 0.95);max-width:520px;margin:0 0 26px;text-shadow:0 1px 16px oklch(18% 0.02 250 / 0.5)">Dos casas totalmente equipadas para 3 y hasta 5 personas, listas para que disfrutes tu próxima escapada.</p>
             <div class="hero-cta">
-              <a href="#pequena" class="h-glass" style="font-size:14.5px;font-weight:600;color:white;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid oklch(100% 0 0 / 0.35);padding:14px 26px;border-radius:100px;transition:transform .2s ease,background .2s ease;background-color:#0000003B">Ver Pequeña Eluney</a>
-              <a href="#gran" class="h-glass" style="font-size:14.5px;font-weight:600;color:white;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid oklch(100% 0 0 / 0.35);padding:14px 26px;border-radius:100px;transition:transform .2s ease,background .2s ease;background-color:#0000003B">Ver Gran Eluney</a>
+              <a href="#pequena" class="h-glass" style="font-size:14.5px;font-weight:600;color:white;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid oklch(100% 0 0 / 0.35);padding:14px 26px;border-radius:100px;transition:transform .2s ease,background .2s ease;background-color:#0000003B">Pequeña Eluney</a>
+              <a href="#gran" class="h-glass" style="font-size:14.5px;font-weight:600;color:white;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid oklch(100% 0 0 / 0.35);padding:14px 26px;border-radius:100px;transition:transform .2s ease,background .2s ease;background-color:#0000003B">Gran Eluney</a>
             </div>
           </div>
         </div>
@@ -124,51 +124,42 @@
       <div class="grid-cards">
 
         <div class="h-card" style="background:oklch(100% 0 0 / 0.6);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:28px;overflow:hidden;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12);transition:transform .3s ease,box-shadow .3s ease">
-          <div style="position:relative;aspect-ratio:4/3;margin:10px;border-radius:20px;overflow:hidden">
+          <div class="house-media">
             <img class="fill" loading="lazy" src="images/pequena-cover.webp" alt="Foto de Pequeña Eluney">
             <div style="position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px">
               <span style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:oklch(28% 0.01 75);background:oklch(100% 0 0 / 0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 13px;border-radius:100px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Hasta 3 personas</span>
             </div>
           </div>
-          <div style="padding:20px 26px 28px">
+          <div class="house-body">
             <div style="font-size:12px;font-weight:600;letter-spacing:.1em;color:oklch(48% 0.10 210);margin-bottom:6px">CASA PRINCIPAL</div>
             <h3 style="font-family:'Sora',sans-serif;font-size:23px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px">Pequeña Eluney</h3>
-            <p style="font-size:15px;line-height:1.55;color:oklch(47% 0.01 75);margin:0 0 18px">La casa principal del complejo, ideal para una estadía íntima</p>
-            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">1</strong> Dormitorio</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">1</strong> Baño</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">2-3</strong> Huéspedes</span>
-            </div>
-            <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">WiFi</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">Cocina equipada</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">TV</span>
-              
+            <p style="font-size:15px;line-height:1.5;color:oklch(47% 0.01 75);margin:0 0 10px">La casa principal del complejo, ideal para una estadía íntima</p>
+            <p class="house-meta"><strong style="font-weight:600">1</strong> dormitorio · <strong style="font-weight:600">1</strong> baño · <strong style="font-weight:600">2-3</strong> huéspedes</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap">
+              <span class="chip">WiFi</span>
+              <span class="chip">Cocina equipada</span>
+              <span class="chip">TV</span>
             </div>
             <a href="#pequena" class="h-lift" style="display:block;text-align:center;font-size:14.5px;font-weight:600;color:white;background:oklch(48% 0.10 210);padding:13px 20px;border-radius:100px;transition:transform .2s ease">Ver Pequeña Eluney</a>
           </div>
         </div>
 
         <div class="h-card" style="background:oklch(100% 0 0 / 0.6);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:28px;overflow:hidden;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12);transition:transform .3s ease,box-shadow .3s ease">
-          <div style="position:relative;aspect-ratio:4/3;margin:10px;border-radius:20px;overflow:hidden">
+          <div class="house-media">
             <img class="fill" loading="lazy" src="images/gran-cover.webp" alt="Foto de Gran Eluney">
             <div style="position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px">
               <span style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:oklch(28% 0.01 75);background:oklch(100% 0 0 / 0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 13px;border-radius:100px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Hasta 5 personas</span>
             </div>
           </div>
-          <div style="padding:20px 26px 28px">
+          <div class="house-body">
             <div style="font-size:12px;font-weight:600;letter-spacing:.1em;color:oklch(55% 0.13 45);margin-bottom:6px">PLANTA BAJA</div>
             <h3 style="font-family:'Sora',sans-serif;font-size:23px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px">Gran Eluney</h3>
-            <p style="font-size:15px;line-height:1.55;color:oklch(47% 0.01 75);margin:0 0 18px">Ambientes amplios, con living, comedor y cocina integrados</p>
-            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">2</strong> Dormitorios</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">1</strong> Baño</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);background:oklch(94% 0.01 75 / 0.8);border:1px solid oklch(90% 0.01 75);padding:7px 13px;border-radius:100px"><strong style="font-weight:600">5</strong> Huéspedes</span>
-            </div>
-            <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap">
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">WiFi</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">Patio amplio</span>
-              <span style="font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:7px 13px;border-radius:100px">TV</span>
+            <p style="font-size:15px;line-height:1.5;color:oklch(47% 0.01 75);margin:0 0 10px">Ambientes amplios, con living, comedor y cocina integrados</p>
+            <p class="house-meta"><strong style="font-weight:600">2</strong> dormitorios · <strong style="font-weight:600">1</strong> baño · <strong style="font-weight:600">5</strong> huéspedes</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap">
+              <span class="chip">WiFi</span>
+              <span class="chip">Patio amplio</span>
+              <span class="chip">TV</span>
             </div>
             <a href="#gran" class="h-lift" style="display:block;text-align:center;font-size:14.5px;font-weight:600;color:white;background:oklch(55% 0.13 45);padding:13px 20px;border-radius:100px;transition:transform .2s ease">Ver Gran Eluney</a>
           </div>
@@ -179,53 +170,39 @@
 
     <section style="padding:clamp(56px,8vw,96px) 24px;background:oklch(95% 0.014 70 / 0.7)">
       <div style="max-width:1120px;margin:0 auto">
-        <div style="max-width:640px;margin:0 auto 44px;text-align:center">
+        <div style="max-width:640px;margin:0 auto 28px;text-align:center">
           <div style="font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:oklch(52% 0.07 145)">Servicios</div>
           <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:16px 0 14px">Todo resuelto antes de llegar</h2>
           <p style="font-size:16.5px;line-height:1.6;color:oklch(45% 0.01 75);margin:0">Las casas se entregan listas para usar. Estos son los servicios incluidos en cada estadía.</p>
         </div>
-        <div class="grid-tiles">
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8.5a16 16 0 0 1 20 0"></path><path d="M5.5 12.5a11 11 0 0 1 13 0"></path><path d="M9 16.5a6 6 0 0 1 6 0"></path><circle cx="12" cy="20" r="1.2" fill="currentColor" stroke="none"></circle></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">WiFi en toda la casa</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Conexión estable para trabajar o mirar series después de la excursión.</p>
+        <div class="list-group cols-2 glass" style="max-width:900px;margin:0 auto">
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(93% 0.03 210);color:oklch(48% 0.10 210)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8.5a16 16 0 0 1 20 0"></path><path d="M5.5 12.5a11 11 0 0 1 13 0"></path><path d="M9 16.5a6 6 0 0 1 6 0"></path><circle cx="12" cy="20" r="1.2" fill="currentColor" stroke="none"></circle></svg></div>
+            <div><h3 class="list-title">WiFi en toda la casa</h3><p class="list-text">Conexión estable para trabajar o mirar series después de la excursión.</p></div>
           </div>
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(94% 0.035 60);color:oklch(55% 0.13 45);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 18h18"></path><path d="M7 10V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"></path></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Ropa de cama incluida</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Camas hechas con sábanas limpias y frazadas para el frío de la montaña.</p>
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(94% 0.035 60);color:oklch(55% 0.13 45)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 18h18"></path><path d="M7 10V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"></path></svg></div>
+            <div><h3 class="list-title">Ropa de cama incluida</h3><p class="list-text">Camas hechas con sábanas limpias y frazadas para el frío de la montaña.</p></div>
           </div>
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="10" width="14" height="8" rx="2"></rect><path d="M3 10a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4"></path><path d="M20 12h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1"></path></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Cocina equipada</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Vajilla, utensilios, heladera y todo lo necesario para cocinar sin llevar nada.</p>
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(93% 0.03 210);color:oklch(48% 0.10 210)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="10" width="14" height="8" rx="2"></rect><path d="M3 10a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4"></path><path d="M20 12h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1"></path></svg></div>
+            <div><h3 class="list-title">Cocina equipada</h3><p class="list-text">Vajilla, utensilios, heladera y todo lo necesario para cocinar sin llevar nada.</p></div>
           </div>
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(94% 0.035 60);color:oklch(55% 0.13 45);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4v16M9 4v16M14 4v16M19 4v16"></path><path d="M4 9h15M4 15h15"></path></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Calefacción</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">La casa siempre templada, incluso en los días de nieve.</p>
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(94% 0.035 60);color:oklch(55% 0.13 45)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4v16M9 4v16M14 4v16M19 4v16"></path><path d="M4 9h15M4 15h15"></path></svg></div>
+            <div><h3 class="list-title">Calefacción</h3><p class="list-text">La casa siempre templada, incluso en los días de nieve.</p></div>
           </div>
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M9.5 16V8h3.2a2.4 2.4 0 0 1 0 4.8H9.5"></path></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Estacionamiento propio</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Lugar para dejar el auto dentro del terreno, con sector techado en Gran Eluney.</p>
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(93% 0.03 210);color:oklch(48% 0.10 210)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M9.5 16V8h3.2a2.4 2.4 0 0 1 0 4.8H9.5"></path></svg></div>
+            <div><h3 class="list-title">Estacionamiento propio</h3><p class="list-text">Lugar para dejar el auto dentro del terreno, con sector techado en Gran Eluney.</p></div>
           </div>
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.03 210);color:oklch(48% 0.10 210);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"></path><circle cx="12" cy="11" r="2.5"></circle></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Ubicación a 5 minutos</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Barrio tranquilo, cerca del Centro Cívico y de los accesos a las rutas.</p>
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(93% 0.03 210);color:oklch(48% 0.10 210)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"></path><circle cx="12" cy="11" r="2.5"></circle></svg></div>
+            <div><h3 class="list-title">Ubicación a 5 minutos</h3><p class="list-text">Barrio tranquilo, cerca del Centro Cívico y de los accesos a las rutas.</p></div>
           </div>
-
-          <div class="h-tile" style="background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);border-radius:22px;padding:26px 24px;box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08);transition:transform .3s ease,box-shadow .3s ease">
-            <div style="width:42px;height:42px;border-radius:13px;background:oklch(93% 0.04 150);color:oklch(52% 0.13 150);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5A8.5 8.5 0 0 1 8.4 19L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"></path></svg></div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:17px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px">Atención directa</h3>
-            <p style="font-size:14.5px;line-height:1.55;color:oklch(47% 0.01 75);margin:0">Nos escribís por WhatsApp y te respondemos nosotros, sin intermediarios.</p>
+          <div class="list-row">
+            <div class="list-icon" style="background:oklch(93% 0.04 150);color:oklch(52% 0.13 150)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5A8.5 8.5 0 0 1 8.4 19L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"></path></svg></div>
+            <div><h3 class="list-title">Atención directa</h3><p class="list-text">Nos escribís por WhatsApp y te respondemos nosotros, sin intermediarios.</p></div>
           </div>
 
         </div>
@@ -248,13 +225,13 @@
     </section>
 
     <section style="padding:0 0 clamp(64px,10vw,110px)">
-      <div style="max-width:760px;margin:0 auto 36px;padding:0 24px;text-align:center">
+      <div style="max-width:760px;margin:0 auto 28px;padding:0 24px;text-align:center">
         <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 12px">Todas las estaciones, mismo paisaje</h2>
         <p style="color:oklch(47% 0.01 75);font-size:16.5px;line-height:1.6;margin:0">Nieve en invierno, verde y sol en verano. Así se vive la casa durante todo el año.</p>
       </div>
-      <div style="overflow:hidden">
-        <div id="marquee-a" style="display:flex;gap:14px;width:max-content;animation:marquee 34s linear infinite;margin-bottom:14px"></div>
-        <div id="marquee-b" style="display:flex;gap:14px;width:max-content;margin-left:-110px;animation:marquee 34s linear infinite reverse"></div>
+      <div class="marquee-wrap" style="overflow:hidden">
+        <div id="marquee-a" class="marquee-row" style="display:flex;gap:14px;width:max-content;animation:marquee 34s linear infinite;margin-bottom:14px"></div>
+        <div id="marquee-b" class="marquee-row" style="display:flex;gap:14px;width:max-content;margin-left:-80px;animation:marquee 34s linear infinite reverse"></div>
       </div>
     </section>
 
@@ -266,7 +243,7 @@
           <a href="#" class="wa-link" target="_blank" rel="noopener" style="font-size:14.5px;font-weight:600;color:oklch(48% 0.10 210)">Preguntar por la ubicación →</a>
         </div>
         <div>
-          <div style="border-radius:18px;overflow:hidden;height:320px;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12)">
+          <div class="map-frame">
             <iframe id="home-map" title="Mapa Bariloche" loading="lazy" style="width:100%;height:100%;border:0;display:block"></iframe>
           </div>
         </div>
@@ -274,46 +251,46 @@
     </section>
 
     <section style="max-width:1120px;margin:0 auto;padding:clamp(64px,10vw,110px) 24px">
-      <div style="max-width:640px;margin:0 auto 40px;text-align:center">
+      <div style="max-width:640px;margin:0 auto 28px;text-align:center">
         <h2 style="font-family:'Sora',sans-serif;font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-0.03em;margin:0 0 12px">Actividades cerca de Bariloche</h2>
         <p style="color:oklch(47% 0.01 75);font-size:16.5px;line-height:1.6;margin:0">Lagos, montañas y caminatas a un paso del complejo. Todo lo que hace de Bariloche un destino para todo el año.</p>
       </div>
-      <div class="grid-activities">
+      <div class="carousel" role="list">
 
-        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+        <div class="activity" role="listitem">
           <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Base_del_Cerro_Catedral_en_Bariloche._%28Patagonia_Argentina%29_20.JPG" alt="Cerro Catedral">
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
-            <div style="padding:18px">
+            <div style="padding:8px">
               <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Cerro Catedral</h3>
               <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">El centro de esquí y snowboard más grande de Sudamérica, con vistas a toda la cordillera.</p>
             </div>
           </div>
         </div>
 
-        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+        <div class="activity" role="listitem">
           <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago_Nahuel_Huapi.jpg" alt="Lago Nahuel Huapi">
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
-            <div style="padding:18px">
+            <div style="padding:8px">
               <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Lago Nahuel Huapi</h3>
               <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">Playas, kayak y paseos en catamarán en un lago de origen glaciar rodeado de montañas.</p>
             </div>
           </div>
         </div>
 
-        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+        <div class="activity" role="listitem">
           <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cerro_otto_teleferico.jpg" alt="Cerro Otto">
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
-            <div style="padding:18px">
+            <div style="padding:8px">
               <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Cerro Otto</h3>
               <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">Teleférico con vistas panorámicas a lagos y montañas, ideal para una tarde de paseo.</p>
             </div>
           </div>
         </div>
 
-        <div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 18px 40px oklch(30% 0.02 75 / 0.16)">
+        <div class="activity" role="listitem">
           <img class="fill" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bariloche-_Argentina2.jpg" alt="Circuito Chico">
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,oklch(18% 0.02 250 / 0.72),transparent 58%);padding:14px">
-            <div style="padding:18px">
+            <div style="padding:8px">
               <h3 style="font-family:'Sora',sans-serif;color:white;font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 6px">Circuito Chico</h3>
               <p style="color:oklch(97% 0.005 250 / 0.9);font-size:13.5px;line-height:1.5;margin:0">Bosques, miradores y caminatas junto al lago — el paseo más clásico de Bariloche.</p>
             </div>
@@ -330,7 +307,7 @@
         <p style="font-size:16.5px;line-height:1.6;color:oklch(45% 0.01 75);margin:0 auto 32px;max-width:520px">Escribinos por WhatsApp o seguinos en Instagram para ver más fotos del complejo.</p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
           <a href="#" class="wa-link h-lift" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;background:oklch(56% 0.14 150);color:white;padding:15px 30px;border-radius:100px;transition:transform .2s ease">WhatsApp</a>
-          <a href="#" class="ig-link" class="h-lift" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;background:oklch(24% 0.01 75);color:white;padding:15px 30px;border-radius:100px;transition:transform .2s ease">Instagram</a>
+          <a href="#" class="ig-link h-lift" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;background:oklch(24% 0.01 75);color:white;padding:15px 30px;border-radius:100px;transition:transform .2s ease">Instagram</a>
         </div>
       </div>
     </section>
@@ -350,12 +327,20 @@
     </div>
   </footer>
 
-  <a href="#" class="wa-link h-lift3" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:oklch(56% 0.14 150);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px oklch(30% 0.02 150 / 0.38);z-index:60;transition:transform .2s ease">
+  <a href="#" class="wa-link h-lift3 wa-float" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:oklch(56% 0.14 150);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px oklch(30% 0.02 150 / 0.38);z-index:60;transition:transform .2s ease">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <dialog id="lightbox" class="lightbox" aria-label="Fotos">
+    <div class="lb-track"></div>
+    <div class="lb-bar">
+      <span class="lb-count" aria-live="polite"></span>
+      <button type="button" class="lb-close" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+  </dialog>
+
 </div>
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
+<script src="js/data.js?v=3"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

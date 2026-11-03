@@ -38,6 +38,8 @@ const HOUSES = {
       'images/pequena-06.webp', 'images/pequena-07.webp', 'images/pequena-08.webp', 'images/pequena-09.webp', 'images/pequena-10.webp',
       ...SHARED,
     ],
+    // Reseñas reales: { stars: 5, text: '...', name: '...' }. Sin reseñas, la sección no se muestra.
+    reviews: [],
   },
   gran: {
     id: 'gran',
@@ -52,9 +54,11 @@ const HOUSES = {
     heroImage: 'images/gran-hero.webp',
     photos: [
       'images/gran-cover.webp', 'images/gran-hero.webp', 'images/gran-01.webp', 'images/gran-02.webp', 'images/gran-03.webp',
-      'images/gran-04.webp', 'images/gran-05.webp', 'images/gran-06.webp', 'images/gran-07.webp', 'images/gran-08.webp',
+      'images/gran-04.webp', 'images/gran-05.webp', 'images/gran-06.webp', 'images/gran-07.webp', 'images/gran-09.webp',
+      'images/gran-10.webp', 'images/gran-11.webp',
       ...SHARED,
     ],
+    reviews: [],
   },
 };
 

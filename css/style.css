@@ -56,6 +56,7 @@ a:hover{color:oklch(40% 0.10 210)}
 .nav-house.active[data-house="gran"]{color:oklch(55% 0.13 45)}
 
 /* estados hover (reemplazan style-hover del canvas) */
+@media (hover:hover){
 .h-nav:hover{background:oklch(92% 0.01 75 / 0.7)}
 .h-wa:hover{background:oklch(18% 0.01 75);transform:translateY(-1px)}
 .h-glass:hover{background:oklch(100% 0 0 / 0.28);transform:translateY(-2px)}
@@ -64,41 +65,27 @@ a:hover{color:oklch(40% 0.10 210)}
 .h-lift:hover{transform:translateY(-2px)}
 .h-lift3:hover{transform:translateY(-3px)}
 .h-photo:hover{transform:scale(1.03) rotate(var(--tilt,0deg))}
+}
 
 /* mobile-first layout classes */
 .hero-inner{padding:24px 20px}
-.hero-cta{display:flex;gap:10px;flex-direction:column;align-items:stretch}
-.hero-cta a{text-align:center}
 .grid-cards{display:grid;grid-template-columns:1fr;gap:20px}
-.grid-tiles{display:grid;grid-template-columns:1fr;gap:12px}
 .grid-split{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
-.grid-activities{display:grid;grid-template-columns:1fr;gap:18px}
 
-@media (min-width:480px){
-  .hero-cta{flex-direction:row;align-items:center;gap:12px}
-  .hero-cta a{text-align:left}
-  .grid-activities{grid-template-columns:1fr 1fr}
-}
 @media (min-width:640px){
   .hero-inner{padding:44px 34px}
-  .grid-tiles{grid-template-columns:1fr 1fr;gap:16px}
   .grid-cards{gap:24px}
 }
 @media (min-width:769px){
   .grid-cards{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-  .grid-tiles{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
   .grid-split{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px}
-}
-@media (min-width:900px){
-  .grid-activities{grid-template-columns:repeat(4,1fr)}
 }
 
 /* hamburger mobile */
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:100px;color:oklch(45% 0.01 75);transition:background .2s ease;align-items:center;justify-content:center}
 .nav-toggle:hover{background:oklch(92% 0.01 75 / 0.7)}
 
-.nav-mobile{display:none;position:fixed;top:80px;left:16px;right:16px;z-index:49;background:oklch(99% 0.006 75 / 0.96);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid oklch(100% 0 0 / 0.55);border-radius:24px;box-shadow:0 10px 34px oklch(30% 0.02 75 / 0.14);padding:10px;flex-direction:column;gap:4px}
-.nav-mobile.open{display:flex}
+.nav-mobile{position:fixed;top:80px;left:16px;right:16px;z-index:49;background:oklch(99% 0.006 75 / 0.96);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid oklch(100% 0 0 / 0.55);border-radius:24px;box-shadow:0 10px 34px oklch(30% 0.02 75 / 0.14);padding:10px;flex-direction:column;gap:4px}
 .nav-mobile a{font-size:15px;font-weight:500;color:oklch(40% 0.01 75);padding:13px 16px;border-radius:14px;transition:background .2s ease;display:block}
 .nav-mobile a:hover{background:oklch(92% 0.01 75 / 0.7);color:oklch(32% 0.01 75)}
 .nav-mobile .wa-link{background:#47DD42;color:white !important;font-weight:600;text-align:center;margin-top:4px;border-radius:14px}
@@ -114,4 +101,106 @@ a:hover{color:oklch(40% 0.10 210)}
 
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+
+/* ───────── Mobile-first components (pautas apple-design) ───────── */
+
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+
+/* Feedback inmediato al presionar */
+.h-lift:active,.h-lift3:active,.h-glass:active,.h-wa:active,.press:active,.nav-mobile a:active,.nav-toggle:active{transform:scale(.97);transition-duration:.1s}
+
+/* Material translúcido reutilizable */
+.glass{background:oklch(100% 0 0 / 0.62);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid oklch(100% 0 0 / 0.75);box-shadow:0 12px 34px oklch(30% 0.02 75 / 0.08)}
+
+/* Lista agrupada (estilo iOS inset grouped): servicios, comodidades, reglas */
+.list-group{border-radius:22px;overflow:hidden;display:grid}
+.list-row{display:flex;gap:14px;align-items:center;padding:14px 16px;border-top:1px solid oklch(30% 0.02 75 / 0.08)}
+.list-row:first-child{border-top:0}
+.list-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.list-icon svg{width:19px;height:19px}
+.list-title{font-family:'Sora',sans-serif;font-size:15.5px;font-weight:600;letter-spacing:-0.01em;margin:0}
+.list-text{font-size:13.5px;line-height:1.45;color:oklch(47% 0.01 75);margin:2px 0 0}
+.list-label{font-size:15px;font-weight:500;color:oklch(32% 0.01 75);line-height:1.4}
+.list-dot{width:6px;height:6px;border-radius:50%;flex:none}
+@media (min-width:769px){
+  .list-group.cols-2{grid-template-columns:1fr 1fr}
+  .list-group.cols-2 .list-row:nth-child(2){border-top:0}
+  .list-group.cols-2 .list-row:nth-child(even){border-left:1px solid oklch(30% 0.02 75 / 0.08)}
+  .list-row{padding:18px 20px}
+}
+
+/* Hero */
+.hero-box{min-height:68vh;min-height:68svh}
+@media (min-width:769px){.hero-box{min-height:78vh}}
+.hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-cta a{text-align:center;padding:13px 12px !important;font-size:14px !important}
+@media (min-width:480px){.hero-cta{display:flex;flex-direction:row}.hero-cta a{padding:14px 26px !important;font-size:14.5px !important}}
+
+/* Tarjeta de casa */
+.house-media{position:relative;aspect-ratio:16/10;margin:8px;border-radius:20px;overflow:hidden}
+.house-body{padding:14px 18px 20px}
+@media (min-width:640px){.house-media{aspect-ratio:4/3;margin:10px}.house-body{padding:20px 26px 28px}}
+.house-meta{font-size:14px;color:oklch(42% 0.01 75);margin:0 0 14px}
+.chip{font-size:12.5px;color:oklch(40% 0.01 75);border:1px solid oklch(88% 0.01 75);padding:6px 12px;border-radius:100px}
+
+/* Carrusel con scroll nativo (momentum + snap del sistema) */
+.carousel{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:4px 24px 24px;scroll-padding:0 24px;scrollbar-width:none;overscroll-behavior-x:contain}
+.carousel::-webkit-scrollbar{display:none}
+.carousel>*{scroll-snap-align:start}
+@media (min-width:640px){.carousel{grid-auto-columns:44%}}
+@media (min-width:900px){.carousel{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:0}}
+.activity{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 14px 32px oklch(30% 0.02 75 / 0.16);background:oklch(85% 0.02 75)}
+
+/* Marquee */
+.marquee-tile{width:160px;aspect-ratio:1;flex:none;border-radius:18px;overflow:hidden}
+@media (min-width:640px){.marquee-tile{width:230px;border-radius:20px}}
+
+/* Mapa */
+.map-frame{border-radius:18px;overflow:hidden;height:240px;box-shadow:0 18px 46px oklch(30% 0.02 75 / 0.12)}
+@media (min-width:769px){.map-frame{height:320px}}
+
+/* Página de casa */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px;max-width:420px}
+.stat{padding:12px 14px;border-radius:16px}
+.btn-cta{display:block;text-align:center}
+@media (min-width:480px){.btn-cta{display:inline-block}}
+
+/* Galería + visor */
+.gallery-item{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font:inherit}
+.lightbox{width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:oklch(14% 0.01 75 / 0.94);color:white;opacity:0;transition:opacity .22s ease,display .22s allow-discrete,overlay .22s allow-discrete}
+.lightbox[open]{opacity:1}
+@starting-style{.lightbox[open]{opacity:0}}
+.lightbox::backdrop{background:transparent}
+.lb-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior:contain}
+.lb-track::-webkit-scrollbar{display:none}
+.lb-slide{flex:0 0 100%;height:100%;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;padding:64px 12px}
+.lb-slide img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+.lb-bar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;pointer-events:none}
+.lb-bar>*{pointer-events:auto}
+.lb-count{font-size:14px;font-weight:500;background:oklch(100% 0 0 / 0.14);padding:6px 12px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lb-close{width:40px;height:40px;border-radius:50%;border:0;background:oklch(100% 0 0 / 0.16);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .1s ease}
+.lb-close:active{transform:scale(.92)}
+body:has(.lightbox[open]){overflow:hidden}
+
+/* Botón flotante de WhatsApp */
+.wa-float{bottom:16px !important;right:16px !important;width:52px !important;height:52px !important}
+@media (min-width:769px){.wa-float{bottom:24px !important;right:24px !important;width:56px !important;height:56px !important}}
+
+/* Menú mobile: aparece desde el botón que lo abre y se va por el mismo camino */
+.nav-mobile{display:flex;opacity:0;visibility:hidden;transform:translateY(-6px) scale(.97);transform-origin:top right;transition:opacity .18s ease,transform .26s cubic-bezier(.22,1,.36,1),visibility 0s linear .26s}
+.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity .18s ease,transform .26s cubic-bezier(.22,1,.36,1),visibility 0s}
+@media (min-width:769px){.nav-mobile{display:none}}
+
+/* Accesibilidad: menos movimiento, menos transparencia, más contraste */
+@media (prefers-reduced-motion:reduce){
+  .nav-mobile{transform:none !important}
+  .marquee-row{animation:none !important;margin-left:0 !important}
+  .marquee-wrap{overflow-x:auto !important}
+}
+@media (prefers-reduced-transparency:reduce){
+  header>div,.nav-mobile,.glass,.h-card,.h-tile{background:oklch(99% 0.006 75) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+}
+@media (prefers-contrast:more){
+  .glass,.list-group,.h-card{border-color:oklch(60% 0.01 75) !important}
 }
