@@ -14,10 +14,13 @@ function iconFor(a) {
   return 'check';
 }
 
+// Miniatura (600px) generada en images/sm/ para grillas y carruseles; la original queda para el visor.
+const thumb = (src) => src.replace('images/', 'images/sm/').replace(/\.jpe?g$/, '.webp');
+
 // La cinta de fotos se duplica para que el bucle de la animación no corte.
 function renderMarquee(el, list) {
   el.innerHTML = [...list, ...list]
-    .map((src) => `<div class="marquee-tile"><img class="fill" loading="lazy" src="${src}" alt=""></div>`)
+    .map((src) => `<div class="marquee-tile"><img class="fill" loading="lazy" decoding="async" src="${thumb(src)}" alt=""></div>`)
     .join('');
 }
 
@@ -63,7 +66,7 @@ function houseHTML(house) {
 
   const gallery = house.photos.map((src, n) => `
       <button type="button" class="gallery-item reveal-photo h-photo press" data-photo="${n}" aria-label="Ampliar foto ${n + 1} de ${house.name}" style="--tilt:${TILTS[n % TILTS.length]}deg;break-inside:avoid;margin-bottom:10px;border-radius:14px;overflow:hidden;box-shadow:0 10px 24px oklch(30% 0.02 75 / 0.14);aspect-ratio:${RATIOS[n % RATIOS.length]};transition:transform .35s ease">
-        <img class="fill" loading="lazy" src="${src}" alt="Foto ${n + 1} de ${house.name}">
+        <img class="fill" loading="lazy" decoding="async" src="${thumb(src)}" alt="Foto ${n + 1} de ${house.name}">
       </button>`).join('');
 
   const rules = HOUSE_RULES.map((rule) => `
@@ -85,7 +88,7 @@ function houseHTML(house) {
         <a href="#" class="wa-link h-lift btn-cta" target="_blank" rel="noopener" style="font-size:15px;font-weight:600;background:${house.accent};color:oklch(99% 0.005 75);padding:15px 28px;border-radius:100px;transition:transform .2s ease">Consultar disponibilidad</a>
       </div>
       <div>
-        <div style="border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 22px 55px oklch(30% 0.02 75 / 0.16)"><img class="fill" src="${house.heroImage}" alt="Foto principal de ${house.name}"></div>
+        <div style="border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 22px 55px oklch(30% 0.02 75 / 0.16)"><img class="fill" src="${house.heroImage}" srcset="${thumb(house.heroImage)} 600w, ${house.heroImage} 1600w" sizes="(min-width:769px) 540px, 92vw" alt="Foto principal de ${house.name}"></div>
       </div>
     </section>
 
