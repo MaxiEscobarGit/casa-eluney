@@ -39,10 +39,10 @@ a:hover{color:oklch(40% 0.10 210)}
 .nav-house-link{display:none}
 .nav-below-header{margin-top:76px}
 .nav-below-header-lg{padding-top:96px}
+@media (min-width:1024px){.nav-house-link{display:inline-block}}
 @media (min-width:769px){
   .hero-photo-desktop{display:block}
   .hero-photo-mobile{display:none}
-  .nav-house-link{display:inline-block}
   .nav-below-header{margin-top:84px}
   .nav-below-header-lg{padding-top:104px}
 }
@@ -91,10 +91,10 @@ a:hover{color:oklch(40% 0.10 210)}
 .nav-mobile .wa-link{background:#47DD42;color:white !important;font-weight:600;text-align:center;margin-top:4px;border-radius:14px}
 .nav-mobile .wa-link:hover{background:oklch(18% 0.01 75) !important;transform:none}
 
-@media (min-width:769px){
+@media (min-width:1024px){
   #main-nav{display:flex}
 }
-@media (max-width:768px){
+@media (max-width:1023px){
   #main-nav{display:none !important}
   .nav-toggle{display:flex}
 }
@@ -190,7 +190,8 @@ body:has(.lightbox[open]){overflow:hidden}
 /* Menú mobile: aparece desde el botón que lo abre y se va por el mismo camino */
 .nav-mobile{display:flex;opacity:0;visibility:hidden;transform:translateY(-6px) scale(.97);transform-origin:top right;transition:opacity .18s ease,transform .26s cubic-bezier(.22,1,.36,1),visibility 0s linear .26s}
 .nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity .18s ease,transform .26s cubic-bezier(.22,1,.36,1),visibility 0s}
-@media (min-width:769px){.nav-mobile{display:none}}
+@media (min-width:1024px){.nav-mobile{display:none}}
+.scroll-target{scroll-margin-top:88px}
 
 /* Reseñas: carrusel automático de derecha a izquierda; se pausa al tocar o pasar el mouse */
 @keyframes reviews-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
