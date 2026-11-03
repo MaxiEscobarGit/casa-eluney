@@ -123,6 +123,9 @@ html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
   .list-group.cols-2{grid-template-columns:1fr 1fr}
   .list-group.cols-2 .list-row:nth-child(2){border-top:0}
   .list-group.cols-2 .list-row:nth-child(even){border-left:1px solid oklch(30% 0.02 75 / 0.08)}
+  /* Si la cantidad es impar, el último ocupa las dos columnas y queda centrado */
+  .list-group.cols-2 .list-row:last-child:nth-child(odd){grid-column:1 / -1;justify-content:center}
+  .list-group.cols-2 .list-row:last-child:nth-child(odd)>div:last-child{flex:0 1 auto;max-width:440px}
   .list-row{padding:18px 20px}
 }
 

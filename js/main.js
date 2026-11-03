@@ -83,7 +83,7 @@ document.addEventListener('click', (e) => {
 // Se pausa mientras se toca o se pasa el mouse, y retoma unos segundos después. La lista está duplicada:
 // al llegar a la mitad se vuelve atrás exactamente esa distancia, sin salto visible.
 const REVIEWS_SPEED = 40; // px por segundo
-const RESUME_AFTER = 2500; // ms
+const RESUME_AFTER = 400; // ms después de soltar (o de que termine el momentum del swipe)
 function setupReviewsCarousel(wrap) {
   if (wrap.dataset.ready) return;
   wrap.dataset.ready = '1';
@@ -91,11 +91,13 @@ function setupReviewsCarousel(wrap) {
   wrap._pausedUntil = 0;
   const hold = () => { wrap._pausedUntil = Infinity; };
   const release = () => { wrap._pausedUntil = performance.now() + RESUME_AFTER; };
-  wrap.addEventListener('pointerdown', hold);
+  // Se frena solo mientras el dedo (o el clic) está apretado; pasar el mouse por arriba no lo frena.
+  // No usar mouseenter: en touch el navegador lo simula sin mouseleave y quedaba pausado para siempre.
   wrap.addEventListener('touchstart', hold, { passive: true });
-  wrap.addEventListener('mouseenter', hold);
-  ['pointerup', 'pointercancel', 'touchend', 'touchcancel', 'mouseleave'].forEach((ev) => wrap.addEventListener(ev, release, { passive: true }));
-  wrap.addEventListener('wheel', release, { passive: true });
+  wrap.addEventListener('touchend', release, { passive: true });
+  wrap.addEventListener('touchcancel', release, { passive: true });
+  wrap.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') hold(); });
+  window.addEventListener('pointerup', (e) => { if (e.pointerType === 'mouse' && wrap._pausedUntil === Infinity) release(); });
 }
 let lastFrame = performance.now();
 function tickReviews(now) {
