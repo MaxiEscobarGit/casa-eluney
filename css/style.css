@@ -198,8 +198,9 @@ body:has(.lightbox[open]){overflow:hidden}
 .reviews-track{display:flex;gap:14px;width:max-content;padding-left:14px;animation:reviews-scroll 70s linear infinite}
 .reviews-wrap:hover .reviews-track,.reviews-wrap:active .reviews-track,.reviews-wrap:focus-within .reviews-track{animation-play-state:paused}
 .review-card{width:min(78vw,320px);flex:none;margin:0;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:12px}
-.review-score{align-self:flex-start;min-width:36px;padding:5px 8px;border-radius:10px 10px 10px 3px;color:white;font-family:'Sora',sans-serif;font-weight:700;font-size:14px;text-align:center}
+.review-score{flex:none;min-width:36px;padding:5px 8px;border-radius:10px 10px 10px 3px;color:white;font-family:'Sora',sans-serif;font-weight:700;font-size:14px;text-align:center}
 .review-card blockquote{margin:0;font-size:15px;line-height:1.55;color:oklch(36% 0.01 75);flex:1;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.review-title{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;letter-spacing:-0.01em;color:oklch(28% 0.01 75);line-height:1.3}
 .review-card figcaption{font-size:13px;color:oklch(50% 0.01 75)}
 .review-card figcaption strong{color:oklch(32% 0.01 75);font-weight:600}
 @media (min-width:769px){.review-card{width:360px;padding:24px}}

@@ -28,9 +28,12 @@ function reviewsHTML(accent) {
   if (!REVIEWS.length) return '';
   const card = (r, hidden) => `
         <figure class="review-card glass"${hidden ? ' aria-hidden="true"' : ''}>
-          <div class="review-score" style="background:${accent}">${esc(r.score)}</div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="review-score" style="background:${accent}" aria-label="Puntuación ${esc(r.score)} de 10">${esc(r.score)}</div>
+            ${r.title ? `<strong class="review-title">${esc(r.title)}</strong>` : ''}
+          </div>
           <blockquote>${esc(r.text)}</blockquote>
-          <figcaption><strong>${esc(r.name)}</strong>${r.country ? ` · ${esc(r.country)}` : ''}</figcaption>
+          <figcaption>${r.name ? `<strong>${esc(r.name)}</strong>${r.country ? ` · ${esc(r.country)}` : ''}` : 'Huésped en Booking.com'}</figcaption>
         </figure>`;
   return `
     <section class="reviews" style="padding:clamp(56px,8vw,88px) 0 0">
