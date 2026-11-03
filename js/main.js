@@ -244,6 +244,45 @@ document.addEventListener('click', (e) => {
 });
 
 document.getElementById('resenas').innerHTML = reviewsHTML('oklch(48% 0.10 210)');
+
+// Reseñas: avanza solo (derecha a izquierda) sobre un scroll nativo, así también se puede deslizar con el dedo.
+// Se pausa mientras se toca o se pasa el mouse, y retoma unos segundos después. La lista está duplicada:
+// al llegar a la mitad se vuelve atrás exactamente esa distancia, sin salto visible.
+const REVIEWS_SPEED = 40; // px por segundo
+const RESUME_AFTER = 2500; // ms
+function setupReviewsCarousel(wrap) {
+  if (wrap.dataset.ready) return;
+  wrap.dataset.ready = '1';
+  wrap._pos = wrap.scrollLeft;
+  wrap._pausedUntil = 0;
+  const hold = () => { wrap._pausedUntil = Infinity; };
+  const release = () => { wrap._pausedUntil = performance.now() + RESUME_AFTER; };
+  wrap.addEventListener('pointerdown', hold);
+  wrap.addEventListener('touchstart', hold, { passive: true });
+  wrap.addEventListener('mouseenter', hold);
+  ['pointerup', 'pointercancel', 'touchend', 'touchcancel', 'mouseleave'].forEach((ev) => wrap.addEventListener(ev, release, { passive: true }));
+  wrap.addEventListener('wheel', release, { passive: true });
+}
+let lastFrame = performance.now();
+function tickReviews(now) {
+  const dt = Math.min(now - lastFrame, 100) / 1000;
+  lastFrame = now;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.reviews-wrap').forEach((wrap) => {
+    if (!wrap.offsetParent) return; // vista oculta
+    setupReviewsCarousel(wrap);
+    // Si el usuario lo movió (dedo, trackpad, momentum), seguimos desde donde lo dejó.
+    if (Math.abs(wrap.scrollLeft - wrap._pos) > 2) { wrap._pos = wrap.scrollLeft; wrap._pausedUntil = Math.max(wrap._pausedUntil, now + RESUME_AFTER); }
+    if (reduce || now < wrap._pausedUntil) return;
+    const cards = wrap.querySelectorAll('.review-card');
+    const half = cards[cards.length / 2].offsetLeft - cards[0].offsetLeft;
+    wrap._pos += REVIEWS_SPEED * dt;
+    if (wrap._pos >= half) wrap._pos -= half;
+    wrap.scrollLeft = wrap._pos;
+  });
+  requestAnimationFrame(tickReviews);
+}
+requestAnimationFrame(tickReviews);
 renderMarquee(document.getElementById('marquee-a'), MARQUEE_A);
 renderMarquee(document.getElementById('marquee-b'), MARQUEE_B);
 render();
