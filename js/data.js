@@ -38,8 +38,6 @@ const HOUSES = {
       'images/pequena-06.webp', 'images/pequena-07.webp', 'images/pequena-08.webp', 'images/pequena-09.webp', 'images/pequena-10.webp',
       ...SHARED,
     ],
-    // Reseñas reales: { stars: 5, text: '...', name: '...' }. Sin reseñas, la sección no se muestra.
-    reviews: [],
   },
   gran: {
     id: 'gran',
@@ -58,9 +56,24 @@ const HOUSES = {
       'images/gran-10.webp', 'images/gran-11.webp',
       ...SHARED,
     ],
-    reviews: [],
   },
 };
+
+// Reseñas reales de Booking.com, copiadas textuales. Se muestran en la home y en las dos casas.
+// Formato: { title, score, text } y opcionalmente name / country. Sin reseñas, la sección no se muestra.
+const BOOKING_URL = 'https://www.booking.com/hotel/ar/eluney-casa-en-bariloche.es.html#tab-reviews';
+const REVIEWS = [
+  { title: "EXCELENTE CASA", score: "10", text: "La casa es muy cómoda, sus camas, tiene de todo para cocinar, muy limpia, pero por sobre todo la atención de su anfitriona es espectacular... SUPER RECOMENDABLE" },
+  { title: "Un lugar amplio, cómodo y limpio!", score: "10", text: "Muy cómodo y bien calefaccionado!, además de estar todo muy limpio, tiene buen espacio y es muy linda la casa. En la noche es muy tranquilo para descansar. Además Andrea es muy agradable y dispuesta a ayudar, esperamos volver a Bariloche y a este lugar!" },
+  { title: "Excepcional", score: "10", text: "La verdad todo excelente cómodo y muy buena atención de Andrea la dueña y su madre unas genias" },
+  { title: "Excelente estadía!", score: "10", text: "Súper cómoda, muy amplia todo lo que necesitas lo tienen a disposición, la dueña una maravilla de persona!!! Súper recomendable!!!" },
+  { title: "Excepcional", score: "10", text: "Las instalaciones y la amabilidad del personal es realmente increíble. Siempre atentos y serviciales. Recomiendo totalmente." },
+  { title: "Excepcional", score: "10", text: "Super cómodo, muy limpio! Andrea la dueña una genia total!!" },
+  { title: "Hermosa y amplia Casa", score: "9,0", text: "La casa es muy amplia y con muchas comodidades. Estuvimos 5 días alojados ahí super comodos. Andrea es una genia total, y su familia tambien gente muy amable, con gran respecto y predisposicion. Super recomendable." },
+  { title: "Excepcional", score: "10", text: "Todo en si muy lindo. Nos sentimos como en casa. La verdad que sin dudas lo volveriamos a alquilar." },
+  { title: "Excepcional", score: "10", text: "Excelente ubicación, cómodo y agradable. La atención encantadora" },
+  { title: "Muy bien", score: "8,0", text: "Muy buena ubicación, la casa súper amplia y cómoda, y las anfitrionas Andrea, Herna y obvio eluney super amables!" },
+];
 
 const HOUSE_RULES = [
   'Check-in desde las 15:00 · Check-out hasta las 10:00',
